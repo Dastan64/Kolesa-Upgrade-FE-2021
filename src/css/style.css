@@ -314,3 +314,17 @@ body {
         right: 10px;
     }
 }
+
+@media screen and (max-width: 649px) {
+    .info__balance {
+        display: none;
+    }
+
+    .modal-window__main-image-container {
+        text-align: center;
+    }
+
+    .modal-window__info {
+        margin-top: 28px;
+    }
+}
