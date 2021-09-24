@@ -1,13 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="ru">
+
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
+</head>
+
+<body>
+    <div id="app">
+        <div class="overlay">
+            <div class="modal-window">
+                <div class="modal-window__container">
+                    <div class="modal-window__images">
+                        <div class="modal-window__main-image-container">
+                            <img src="/src/assets/images/t-shirt.png" alt="Изображение футболки" width="330px"
+                                height="330px">
+                        </div>
+                        <div class="modal-window__preview-images preview">
+                            <div class="preview__image-container">
+                                <img class="preview__image" src="/src/assets/images/preview-1.jpg" alt="">
+
+                            </div>
+                            <div class="preview__image-container">
+                                <img class="preview__image_active" src="/src/assets/images/preview-2.jpg" alt="">
+
+                            </div>
+                            <div class="preview__image-container">
+                                <img class="preview__image" src="/src/assets/images/preview-3.jpg" alt="">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-window__info info">
+                        <h3 class="info__heading">Футболка "Эволюционируй или сдохни"</h3>
+                        <p class="info__scores">100 баллов</p>
+                        <button class="info__btn" type="button">Заказать</button>
+
+                        <div class="info__balance">
+                            <div class="info__balance-text">
+                                <p class="info__balance-heading">Твой баланс</p>
+                                <p class="info__balance-number">3 945 баллов</p>
+                            </div>
+                            <div class="info__balance-icon-container">
+                                <img src="/src/assets/images/balance-icon.svg" alt="Иконка баланса">
+                            </div>
+                        </div>
+
+                        <div class="info__colors">
+                            <p class="info__colors-heading">Цвета:</p>
+                            <div class="info__colors-options colors">
+                                <div class="colors__option colors__option_active">
+                                    <label class="colors__checkbox-label" for="blue">
+                                        <input class="colors__input" type="checkbox" name="Синий цвет" id="blue"><span
+                                            class="colors__checkbox colors__checkbox_blue"></span>Синий</label>
+                                </div>
+                                <div class="colors__option">
+                                    <label class="colors__checkbox-label" for="beige">
+                                        <input class="colors__input" type="checkbox" name="Бежевый цвет"
+                                            id="beige"><span
+                                            class="colors__checkbox colors__checkbox_beige"></span>Бежевый</label>
+                                </div>
+                                <div class="colors__option">
+                                    <label class="colors__checkbox-label" for="grey">
+                                        <input class="colors__input" type="checkbox" name="Серый цвет" id="grey"><span
+                                            class="colors__checkbox colors__checkbox_grey"></span>Серый</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info__sizes">
+                            <p class="info__size-heading">Размер:</p>
+                            <div class="info__size-options sizes">
+                                <div class="sizes__option sizes__option_active">
+                                    <p>S</p>
+                                </div>
+                                <div class="sizes__option">
+                                    <p>M</p>
+                                </div>
+                                <div class="sizes__option">
+                                    <p>L</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info__details">
+                            <strong>
+                                <p class="info__details-heading">Детали:</p>
+                            </strong>
+                            <p class="info__details-text">Брендированная толстовка от Qazaq Republic. Материал:
+                                Хлопок
+                                80%, Вискоза 20%</p>
+                        </div>
+
+                        <div class="info__how-to">
+                            <strong>
+                                <p class="info__how-to-heading">Как выбрать размер?</p>
+                            </strong>
+                            <p class="info__how-to-answer">Написать дяде Рику для уточнения.</p>
+                        </div>
+                    </div>
+                    <img class="modal-window__close-icon" src="/src/assets/images/close-icon.svg" />
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="module" src="/src/js/main.js"></script>
-  </body>
+</body>
+
 </html>
