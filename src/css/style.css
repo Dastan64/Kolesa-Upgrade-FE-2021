@@ -28,6 +28,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 1039px;
+    max-width: 95%;
     padding: 56px 56px 64px 56px;
     border-radius: 16px;
     background-color: white;
@@ -297,4 +298,19 @@ body {
     margin-top: 4px;
     line-height: 24px;
     font-size: 0.875rem;
+}
+
+@media screen and (max-width: 899px) {
+    .modal-window__container {
+        flex-direction: column;
+    }
+
+    /* .modal-window {
+        padding: 26px 26px 34px 26px;
+    } */
+
+    .modal-window__close-icon {
+        top: 0;
+        right: 10px;
+    }
 }
