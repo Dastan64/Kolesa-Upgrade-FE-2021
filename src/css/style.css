@@ -139,12 +139,9 @@ body {
     margin-top: 24px;
 }
 
-.info__colors-options {
-    margin-top: 8px;
-}
-
 .colors {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .colors__option {
@@ -152,6 +149,8 @@ body {
     display: flex;
     align-items: center;
     padding: 8px 12px 8px 8px;
+    margin-top: 8px;
+    margin-right: 8px;
     border: 1px solid rgba(28, 24, 25, 0.1);
     border-radius: 8px;
     color: var(--blue-primary);
@@ -161,10 +160,6 @@ body {
 .colors__option_active {
     color: var(--black-primary);
     background-color: var(--active-bg-color);
-}
-
-.colors__option:not(:first-child) {
-    margin-left: 8px;
 }
 
 /* .colors__input {
@@ -277,13 +272,17 @@ body {
 
 .sizes {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .sizes__option {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 40px;
+    height: 40px;
     margin-top: 8px;
+    margin-right: 8px;
     padding: 8px 16px;
     border: 1px solid rgba(28, 24, 25, 0.1);
     border-radius: 8px;
@@ -299,10 +298,6 @@ body {
 .sizes__option_active {
     background-color: var(--active-bg-color);
     color: var(--black-primary);
-}
-
-.sizes__option:not(:first-child) {
-    margin-left: 8px;
 }
 
 .info__details {
@@ -360,6 +355,10 @@ body {
         flex-direction: column;
     }
 
+    .modal-window__info {
+        margin-top: 28px;
+    }
+
     .overlay {
         display: block;
     }
@@ -387,10 +386,6 @@ body {
 
     .modal-window__main-image-container {
         text-align: center;
-    }
-
-    .modal-window__info {
-        margin-top: 28px;
     }
 }
 
