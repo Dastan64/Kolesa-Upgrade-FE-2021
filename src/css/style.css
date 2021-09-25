@@ -46,6 +46,10 @@ body {
     background-color: white;
 }
 
+.modal-window__images {
+    max-width: 330px;
+}
+
 .modal-window__close-btn {
     position: absolute;
     right: 20px;
@@ -68,6 +72,11 @@ body {
 .modal-window__preview-images {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+.preview__image {
+    cursor: pointer;
 }
 
 .preview__image-container:not(:first-of-type) {
@@ -339,9 +348,6 @@ body {
     width: 100%;
     height: 44px;
     margin-top: 16px;
-
-    /* padding: 6px 0; */
-
     border: none;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(28, 24, 25, 0.1);
@@ -357,6 +363,10 @@ body {
 
     .modal-window__info {
         margin-top: 28px;
+    }
+
+    .modal-window__images {
+        margin: 0 auto;
     }
 
     .overlay {
@@ -388,9 +398,3 @@ body {
         text-align: center;
     }
 }
-
-/* @media screen and (max-width: 460px) {
-    .modal-window {
-        padding: 24px 14px 16px 24px;
-    }
-} */
