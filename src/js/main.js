@@ -2,9 +2,9 @@
 //   <h1>Hello, Dastan Zhamekeshev!</h1>
 // `;
 
-const modalWindowCloseIcon = document.querySelector('.modal-window__close-icon');
+const modalWindowCloseBtn = document.querySelector('.modal-window__close-btn');
 const modalWindowOverlay = document.querySelector('.overlay');
 
-modalWindowCloseIcon.addEventListener('click', () => {
+modalWindowCloseBtn.addEventListener('click', () => {
     modalWindowOverlay.classList.add('overlay_hidden');
 });
