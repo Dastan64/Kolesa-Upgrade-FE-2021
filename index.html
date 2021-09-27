@@ -1,13 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="ru">
+
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
+</head>
+
+<body>
+    <div id="app">
+        <div class="overlay">
+            <div class="modal-window">
+                <div class="modal-window__container">
+                    <div class="modal-window__images">
+                        <div class="modal-window__main-image-container">
+                            <img src="/src/assets/images/t-shirt.png" alt="Изображение футболки" width="330px"
+                                height="330px">
+                        </div>
+                        <div class="modal-window__preview-images preview">
+                            <div class="preview__image-container">
+                                <img class="preview__image" src="/src/assets/images/preview-1.jpg" alt="">
+                            </div>
+                            <div class="preview__image-container">
+                                <img class="preview__image preview__image_active" src="/src/assets/images/preview-2.jpg"
+                                    alt="">
+                            </div>
+                            <div class="preview__image-container">
+                                <img class="preview__image" src="/src/assets/images/preview-3.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-window__info info">
+                        <h3 class="info__heading">Футболка "Эволюционируй или сдохни"</h3>
+                        <p class="info__scores">100 баллов</p>
+                        <button class="info__btn" type="button">Заказать</button>
+
+                        <div class="info__balance">
+                            <div class="info__balance-text">
+                                <p class="info__balance-heading">Твой баланс</p>
+                                <p class="info__balance-number">3 945 баллов</p>
+                            </div>
+                            <div class="info__balance-icon-container">
+                                <img src="/src/assets/images/bags.png" alt="Картинка сумок">
+                            </div>
+                        </div>
+
+                        <div class="info__colors">
+                            <p class="info__colors-heading">Цвета:</p>
+                            <div class="info__colors-options colors">
+                                <div class="colors__option colors__option_active">
+
+                                    <label class="colors__radio-label colors__radio-label_blue" for="blue"> <input
+                                            class="colors__radio colors__radio_blue" type="radio" name="Синий цвет"
+                                            id="blue"><span class="box box_blue"></span><span
+                                            class="mini-box mini-box_blue"></span>Синий</label>
+                                </div>
+                                <div class="colors__option">
+                                    <label class="colors__radio-label colors__radio-label_beige" for="beige">
+                                        <input class="colors__radio colors_radio_beige" type="radio" name="Бежевый цвет"
+                                            id="beige"><span class="box box_beige"></span><span
+                                            class="mini-box mini-box_beige"></span>Бежевый</label>
+                                </div>
+                                <div class="colors__option">
+
+                                    <label class="colors__radio-label colors__radio-label_grey" for="grey"> <input
+                                            class="colors__radio colors_radio_grey" type="radio" name="Серый цвет"
+                                            id="grey"><span class="box box_grey"></span><span
+                                            class="mini-box mini-box_grey"></span>Серый</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info__sizes">
+                            <p class="info__size-heading">Размер:</p>
+                            <div class="info__size-options sizes">
+                                <div class="sizes__option">
+                                    <p>S</p>
+                                </div>
+                                <div class="sizes__option">
+                                    <p>M</p>
+                                </div>
+                                <div class="sizes__option">
+                                    <p>L</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info__details">
+                            <strong>
+                                <p class="info__details-heading">Детали:</p>
+                            </strong>
+                            <p class="info__details-text">Брендированная толстовка от Qazaq Republic. Материал:
+                                Хлопок
+                                80%, Вискоза 20%</p>
+                        </div>
+
+                        <div class="info__how-to">
+                            <strong>
+                                <p class="info__how-to-heading">Как выбрать размер?</p>
+                            </strong>
+                            <p class="info__how-to-answer">Написать дяде Рику для уточнения.</p>
+                        </div>
+
+
+                    </div>
+
+                    <button class="modal-window__close-btn">
+                        <img src="/src/assets/images/close-icon.svg" />
+                    </button>
+                </div>
+                <div class="info__bottom-balance bottom-balance info__bottom-balance_mobile">
+                    <div class="bottom-balance__container">
+                        <p class="bottom-balance__caption">Твои баллы:</p>
+                        <strong>
+                            <p class="bottom-balance__number">450 баллов</p>
+                        </strong>
+                    </div>
+                    <button class="bottom-balance__btn" type="button">Заказать</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="module" src="/src/js/main.js"></script>
-  </body>
+</body>
+
 </html>
