@@ -48,12 +48,16 @@ body {
 
 .modal-window__images {
     max-width: 330px;
+    padding-right: 24px;
 }
 
 .modal-window__close-btn {
     position: absolute;
-    right: 20px;
+    right: 30px;
     top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 32px;
     height: 32px;
     border: none;
@@ -129,7 +133,10 @@ body {
     padding: 8px 16px;
     border-radius: 16px;
     background-color: #f0fafd;
-    width: 196px;
+}
+
+.info__balance-icon-container img {
+    padding-left: 23px;
 }
 
 .info__balance-heading {
@@ -322,6 +329,7 @@ body {
     }
 
     .modal-window__images {
+        padding-right: 0;
         margin: 0 auto;
     }
 
