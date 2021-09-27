@@ -101,7 +101,7 @@ body {
     margin-top: 8px;
     font-weight: 600;
     font-size: 1.25rem;
-    line-height: 32px;
+    line-height: 2rem;
 }
 
 .info__btn {
@@ -276,7 +276,7 @@ body {
 
 .info__details-text {
     margin-top: 4px;
-    line-height: 24px;
+    line-height: 1.5rem;
     font-size: 0.875rem;
 }
 
@@ -286,7 +286,7 @@ body {
 
 .info__how-to-answer {
     margin-top: 4px;
-    line-height: 24px;
+    line-height: 1.5rem;
     font-size: 0.875rem;
 }
 
