@@ -6,7 +6,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     overflow: auto;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -311,9 +311,9 @@
         margin: 0 auto;
     }
 
-    .overlay {
+    /* .overlay {
         display: block;
-    }
+    } */
 
     .modal-window {
         max-width: 100%;
