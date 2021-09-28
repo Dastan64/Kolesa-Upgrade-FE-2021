@@ -14,6 +14,304 @@
 
 <body>
     <div id="app">
+        <header class="header">
+            <div class="header__wrapper">
+                <div class="header__container">
+                    <div class="header__search search">
+                        <input type="text" class="search__input" placeholder="Поиск">
+                        <!-- <button class="search__button">
+                        <picture><source srcset="/src/assets/images/search-icon.svg" type="image/webp"><img src="/src/assets/images/search-icon.svg" alt="Иконка поиска"></picture>
+                    </button> -->
+                    </div>
+                    <div class="header__profile-container profile">
+                        <div class="profile__image-container">
+                            <picture>
+                                <source srcset="/src/assets/images/profile-avatar.webp" type="image/webp"><img
+                                    src="/src/assets/images/profile-avatar.png" alt="Аватарка профиля">
+                            </picture>
+                        </div>
+                        <div class="profile__descr">
+                            <h3 class="profile__name">Мортиджан</h3>
+                            <p class="profile__scores">300 баллов</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="main__buttons buttons">
+                <button class="buttons__get-scores" type="button">
+                    <picture>
+                        <source srcset="/src/assets/images/plus-icon.webp" type="image/webp"><img
+                            src="/src/assets/images/plus-icon.png" alt="">
+                    </picture>
+                    Получить баллы
+                </button>
+                <button class="buttons__how-to" type="button">
+                    <picture>
+                        <source srcset="/src/assets/images/question-icon.webp" type="image/webp"><img
+                            src="/src/assets/images/question-icon.png" alt="">
+                    </picture>
+                    Как получить баллы
+                </button>
+                <button class="buttons__gift" type="button">
+                    <picture>
+                        <source srcset="/src/assets/images/gift-icon.webp" type="image/webp"><img
+                            src="/src/assets/images/gift-icon.png" alt="">
+                    </picture>
+                    Подарить баллы
+                </button>
+            </div>
+            <div class="main__tabs tabs">
+                <div class="tabs__nav">
+                    <button class="tabs__nav-btn" type="button" data-tab="#tab_1">Все товары</button>
+                    <button class="tabs__nav-btn" type="button" data-tab="#tab_2">Одежда</button>
+                    <button class="tabs__nav-btn" type="button" data-tab="#tab_3">Аксессуары</button>
+                </div>
+            </div>
+            <div class="main__grid grid">
+                <div class="grid__item card">
+                    <div class="card__image-container">
+                        <picture>
+                            <source srcset="/src/assets/images/t-shirt-card.webp" type="image/webp"><img
+                                src="/src/assets/images/t-shirt-card.png" alt="Изображение футболки">
+                        </picture>
+                        <div class="card__thumb">
+                            <p>New</p>
+                        </div>
+
+                    </div>
+                    <div class="card__info">
+                        <h3 class="card__scores">220 баллов</h3>
+                        <p class="card__name">Футболка "Эволюционируй или умри</p>
+                        <p class="card__sizes">Размеры S/M/L</p>
+                        <button class="card__btn" type="button" title="Заказать">Заказать</button>
+
+                    </div>
+
+                </div>
+                <div class="grid__item card">
+                    <div class="card__image-container">
+                        <picture>
+                            <source srcset="/src/assets/images/t-shirt-card.webp" type="image/webp"><img
+                                src="/src/assets/images/t-shirt-card.png" alt="Изображение футболки">
+                        </picture>
+                        <div class="card__thumb">
+                            <p>New</p>
+                        </div>
+
+                    </div>
+                    <div class="card__info">
+                        <h3 class="card__scores">220 баллов</h3>
+                        <p class="card__name">Футболка "Эволюционируй или умри</p>
+                        <p class="card__sizes">Размеры S/M/L</p>
+                        <button class="card__btn" type="button" title="Заказать">Заказать</button>
+
+                    </div>
+
+                </div>
+                <div class="grid__item card">
+                    <div class="card__image-container">
+                        <picture>
+                            <source srcset="/src/assets/images/t-shirt-card.webp" type="image/webp"><img
+                                src="/src/assets/images/t-shirt-card.png" alt="Изображение футболки">
+                        </picture>
+                        <div class="card__thumb">
+                            <p>New</p>
+                        </div>
+
+                    </div>
+                    <div class="card__info">
+                        <h3 class="card__scores">220 баллов</h3>
+                        <p class="card__name">Футболка "Эволюционируй или умри</p>
+                        <p class="card__sizes">Размеры S/M/L</p>
+                        <button class="card__btn" type="button" title="Заказать">Заказать</button>
+
+                    </div>
+
+                </div>
+                <div class="grid__item card">
+                    <div class="card__image-container">
+                        <picture>
+                            <source srcset="/src/assets/images/t-shirt-card.webp" type="image/webp"><img
+                                src="/src/assets/images/t-shirt-card.png" alt="Изображение футболки">
+                        </picture>
+                        <div class="card__thumb">
+                            <p>New</p>
+                        </div>
+
+                    </div>
+                    <div class="card__info">
+                        <h3 class="card__scores">220 баллов</h3>
+                        <p class="card__name">Футболка "Эволюционируй или умри</p>
+                        <p class="card__sizes">Размеры S/M/L</p>
+                        <button class="card__btn" type="button" title="Заказать">Заказать</button>
+
+                    </div>
+
+                </div>
+                <div class="grid__item card">
+                    <div class="card__image-container">
+                        <picture>
+                            <source srcset="/src/assets/images/t-shirt-card.webp" type="image/webp"><img
+                                src="/src/assets/images/t-shirt-card.png" alt="Изображение футболки">
+                        </picture>
+                        <div class="card__thumb">
+                            <p>New</p>
+                        </div>
+
+                    </div>
+                    <div class="card__info">
+                        <h3 class="card__scores">220 баллов</h3>
+                        <p class="card__name">Футболка "Эволюционируй или умри</p>
+                        <p class="card__sizes">Размеры S/M/L</p>
+                        <button class="card__btn" type="button" title="Заказать">Заказать</button>
+
+                    </div>
+
+                </div>
+                <div class="grid__item card">
+                    <div class="card__image-container">
+                        <picture>
+                            <source srcset="/src/assets/images/t-shirt-card.webp" type="image/webp"><img
+                                src="/src/assets/images/t-shirt-card.png" alt="Изображение футболки">
+                        </picture>
+                        <div class="card__thumb">
+                            <p>New</p>
+                        </div>
+
+                    </div>
+                    <div class="card__info">
+                        <h3 class="card__scores">220 баллов</h3>
+                        <p class="card__name">Футболка "Эволюционируй или умри</p>
+                        <p class="card__sizes">Размеры S/M/L</p>
+                        <button class="card__btn" type="button" title="Заказать">Заказать</button>
+
+                    </div>
+
+                </div>
+                <div class="grid__item card">
+                    <div class="card__image-container">
+                        <picture>
+                            <source srcset="/src/assets/images/t-shirt-card.webp" type="image/webp"><img
+                                src="/src/assets/images/t-shirt-card.png" alt="Изображение футболки">
+                        </picture>
+                        <div class="card__thumb">
+                            <p>New</p>
+                        </div>
+
+                    </div>
+                    <div class="card__info">
+                        <h3 class="card__scores">220 баллов</h3>
+                        <p class="card__name">Футболка "Эволюционируй или умри</p>
+                        <p class="card__sizes">Размеры S/M/L</p>
+                        <button class="card__btn" type="button" title="Заказать">Заказать</button>
+
+                    </div>
+
+                </div>
+                <div class="grid__item card">
+                    <div class="card__image-container">
+                        <picture>
+                            <source srcset="/src/assets/images/t-shirt-card.webp" type="image/webp"><img
+                                src="/src/assets/images/t-shirt-card.png" alt="Изображение футболки">
+                        </picture>
+                        <div class="card__thumb">
+                            <p>New</p>
+                        </div>
+
+                    </div>
+                    <div class="card__info">
+                        <h3 class="card__scores">220 баллов</h3>
+                        <p class="card__name">Футболка "Эволюционируй или умри</p>
+                        <p class="card__sizes">Размеры S/M/L</p>
+                        <button class="card__btn" type="button" title="Заказать">Заказать</button>
+
+                    </div>
+
+                </div>
+                <div class="grid__item card">
+                    <div class="card__image-container">
+                        <picture>
+                            <source srcset="/src/assets/images/t-shirt-card.webp" type="image/webp"><img
+                                src="/src/assets/images/t-shirt-card.png" alt="Изображение футболки">
+                        </picture>
+                        <div class="card__thumb">
+                            <p>New</p>
+                        </div>
+
+                    </div>
+                    <div class="card__info">
+                        <h3 class="card__scores">220 баллов</h3>
+                        <p class="card__name">Футболка "Эволюционируй или умри</p>
+                        <p class="card__sizes">Размеры S/M/L</p>
+                        <button class="card__btn" type="button" title="Заказать">Заказать</button>
+
+                    </div>
+
+                </div>
+                <div class="grid__item card">
+                    <div class="card__image-container">
+                        <picture>
+                            <source srcset="/src/assets/images/t-shirt-card.webp" type="image/webp"><img
+                                src="/src/assets/images/t-shirt-card.png" alt="Изображение футболки">
+                        </picture>
+                        <div class="card__thumb">
+                            <p>New</p>
+                        </div>
+
+                    </div>
+                    <div class="card__info">
+                        <h3 class="card__scores">220 баллов</h3>
+                        <p class="card__name">Футболка "Эволюционируй или умри</p>
+                        <p class="card__sizes">Размеры S/M/L</p>
+                        <button class="card__btn" type="button" title="Заказать">Заказать</button>
+
+                    </div>
+
+                </div>
+                <div class="grid__item card">
+                    <div class="card__image-container">
+                        <picture>
+                            <source srcset="/src/assets/images/t-shirt-card.webp" type="image/webp"><img
+                                src="/src/assets/images/t-shirt-card.png" alt="Изображение футболки">
+                        </picture>
+                        <div class="card__thumb">
+                            <p>New</p>
+                        </div>
+
+                    </div>
+                    <div class="card__info">
+                        <h3 class="card__scores">220 баллов</h3>
+                        <p class="card__name">Футболка "Эволюционируй или умри</p>
+                        <p class="card__sizes">Размеры S/M/L</p>
+                        <button class="card__btn" type="button" title="Заказать">Заказать</button>
+
+                    </div>
+
+                </div>
+                <div class="grid__item card">
+                    <div class="card__image-container">
+                        <picture>
+                            <source srcset="/src/assets/images/t-shirt-card.webp" type="image/webp"><img
+                                src="/src/assets/images/t-shirt-card.png" alt="Изображение футболки">
+                        </picture>
+                        <div class="card__thumb">
+                            <p>New</p>
+                        </div>
+
+                    </div>
+                    <div class="card__info">
+                        <h3 class="card__scores">220 баллов</h3>
+                        <p class="card__name">Футболка "Эволюционируй или умри</p>
+                        <p class="card__sizes">Размеры S/M/L</p>
+                        <button class="card__btn" type="button" title="Заказать">Заказать</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </main>
         <div class="overlay">
             <div class="modal-window">
                 <div class="modal-window__container">
