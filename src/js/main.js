@@ -2,6 +2,8 @@ const modalWindowCloseBtn = document.querySelector('.modal-window__close-btn');
 const sizesContainer = document.querySelector('.info__size-options');
 const modalWindowOverlay = document.querySelector('.overlay');
 const colorsContainer = document.querySelector('.colors');
+const listLinks = document.querySelectorAll('.list__link');
+const tabsBtn = document.querySelectorAll('.tabs__nav-btn');
 
 colorsContainer.addEventListener('click', (e) => {
     if (!e.target.closest('.colors__option').classList.contains('.colors__option_active')) {
@@ -22,3 +24,28 @@ sizesContainer.addEventListener('click', (e) => {
         e.target.closest('.sizes__option').classList.add('sizes__option_active');
     }
 });
+
+Array.from(listLinks).forEach(item => item.addEventListener('click', () => {
+    if (!item.classList.contains('list__link_active')) {
+        Array.from(listLinks).forEach(link => link.classList.remove('list__link_active'));
+        item.classList.add('list__link_active');
+    }
+}));
+
+function onTabClick(item) {
+    item.addEventListener('click', () => {
+        const currentBtn = item;
+
+        if (!currentBtn.classList.contains('active')) {
+            tabsBtn.forEach((tabBtn) => {
+                tabBtn.classList.remove('tabs__nav-btn_active');
+            });
+
+            currentBtn.classList.add('tabs__nav-btn_active');
+        }
+    });
+}
+
+tabsBtn.forEach(onTabClick);
+
+document.querySelector('.tabs__nav-btn').click();

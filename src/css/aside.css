@@ -1,0 +1,34 @@
+.aside {
+    max-width: 313px;
+}
+
+.aside__nav {
+    margin-top: 37px;
+}
+
+.aside .list__item:not(:last-child) {
+    margin-bottom: 26px;
+}
+
+.aside .list__link {
+    color: #1c1819;
+}
+
+.aside .list__link_active {
+    position: relative;
+    font-weight: 600;
+}
+
+.aside .list__link_active::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: -8px;
+    width: 4px;
+    height: 36px;
+    border-radius: 10px;
+    background-color: #2a81dd;
+}
