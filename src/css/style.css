@@ -69,12 +69,15 @@ li {
     max-width: 1038px;
 }
 
+.main__banner-container {
+    margin-bottom: 24px;
+}
+
 .main__banner-container img {
     max-width: 100%;
 }
 
 .main__buttons {
-    margin-top: 24px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
