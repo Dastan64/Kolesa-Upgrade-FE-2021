@@ -12,7 +12,13 @@
 * {
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
 }
 
 body {
@@ -31,19 +37,40 @@ li {
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    min-height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
 
 .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    width: 100%;
     max-width: 1368px;
-    margin: 0 auto;
+    margin: 26px auto 0;
     padding-left: 32px;
     padding-right: 26px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
 .main {
     padding-bottom: 192px;
+    max-width: 1038px;
+}
+
+.main__banner-container img {
+    max-width: 100%;
 }
 
 .main__buttons {
@@ -85,12 +112,27 @@ li {
     background: #eff8eb;
 }
 
+.main .buttons__get-scores:hover {
+    -webkit-box-shadow: 0 0 15px #cdd4c9;
+    box-shadow: 0 0 15px #cdd4c9;
+}
+
 .main .buttons__how-to {
     background: #fffae7;
 }
 
+.main .buttons__how-to:hover {
+    -webkit-box-shadow: 0 0 15px #e2decd;
+    box-shadow: 0 0 15px #e2decd;
+}
+
 .main .buttons__gift {
     background: #e9f2fb;
+}
+
+.main .buttons__gift:hover {
+    -webkit-box-shadow: 0 0 15px #c5cdd4;
+    box-shadow: 0 0 15px #c5cdd4;
 }
 
 .main__tabs {
@@ -122,8 +164,13 @@ li {
     border: 1px solid #e8e8e8;
     border-radius: 8px;
     background-color: transparent;
-    color: #2a81dd;
+    color: var(--blue-primary);
     cursor: pointer;
+}
+
+.main .tabs__nav-btn:hover {
+    background-color: #d6ecfb;
+    color: var(--black-primary);
 }
 
 .main .tabs__nav-btn_active {
@@ -199,7 +246,7 @@ li {
     margin-bottom: 8px;
     font-weight: 600;
     font-size: 1.5rem;
-    color: #2a81dd;
+    color: var(--blue-primary);
     line-height: 2.25rem;
 }
 
@@ -229,7 +276,7 @@ li {
     margin-bottom: 16px;
     border: none;
     border-radius: 8px;
-    background-color: #2a81dd;
+    background-color: var(--blue-primary);
     -webkit-box-shadow: 0 2px 4px rgba(28, 24, 25, 0.1);
     box-shadow: 0 2px 4px rgba(28, 24, 25, 0.1);
     color: #fff;
@@ -242,4 +289,9 @@ li {
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     z-index: 1;
+}
+
+.main .card__btn:hover {
+    background-color: #ffdd61;
+    color: var(--black-primary);
 }
