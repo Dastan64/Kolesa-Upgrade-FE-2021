@@ -54,6 +54,7 @@
     background-color: #fff;
     font-size: 0.875rem;
     cursor: pointer;
+    box-shadow: 0 2px 4px rgba(28, 24, 25, 0.1);
     -webkit-transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
     -o-transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
