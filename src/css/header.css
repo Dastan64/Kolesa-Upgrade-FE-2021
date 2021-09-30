@@ -69,11 +69,6 @@
     cursor: pointer;
 }
 
-.header .search__btn:active,
-.header .search__btn:focus {
-    outline: 1px solid var(--blue-primary);
-}
-
 .header__profile-container {
     display: -webkit-box;
     display: -ms-flexbox;
