@@ -84,6 +84,10 @@
     border-radius: 8px;
 }
 
+.header__profile-link {
+    color: var(--black-primary);
+}
+
 .header .profile__image-container img {
     width: 44px;
     height: 44px;
