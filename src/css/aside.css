@@ -14,10 +14,6 @@
     color: var(--blue-primary);
 }
 
-.aside .list__link:focus {
-    outline: 1px solid var(--blue-primary);
-}
-
 .aside .list__link:active {
     outline: none;
     color: var(--blue-primary);
