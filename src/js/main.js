@@ -145,7 +145,6 @@ if (cards.length > 0) {
 
         gridItem.setAttribute('class', 'grid__item card');
         gridItem.innerHTML = `
-        <div class="grid__item card">
     <div class="card__wrapper">
         <div class="card__image-container">
             <picture>
@@ -163,8 +162,7 @@ if (cards.length > 0) {
             <p class="card__sizes">Размеры ${sizes}</p>
             <button class="card__btn" type="button" title="Заказать">Заказать</button>
         </div>
-    </div>
-</div>`;
+    </div>`;
 
         grid.append(gridItem);
     });
