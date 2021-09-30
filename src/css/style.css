@@ -23,6 +23,7 @@ body {
 
 body {
     color: var(--black-primary);
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 
 a {
