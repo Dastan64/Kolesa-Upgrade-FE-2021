@@ -191,14 +191,23 @@ li {
 
 .main .card {
     position: relative;
-    max-width: 330px;
     cursor: pointer;
 }
 
-.main .card:hover {
+.main .card__wrapper {
+    position: relative;
+    background-color: #fff;
+    max-width: 330px;
+}
+
+.main .card:hover .card__wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
     -webkit-box-shadow: 0 2px 10px rgba(28, 24, 25, 0.1);
     box-shadow: 0 2px 10px rgba(28, 24, 25, 0.1);
-    border-radius: 8px;
+    z-index: 3;
 }
 
 .main .card:hover .card__scores {
@@ -243,7 +252,7 @@ li {
     padding-top: 16px;
     padding-left: 16px;
     padding-right: 24px;
-    padding-bottom: 60px;
+    padding-bottom: 26px;
 }
 
 .main .card__scores {
@@ -286,13 +295,6 @@ li {
     color: #fff;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     cursor: pointer;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
-    z-index: 1;
 }
 
 .main .card__btn:hover {
