@@ -192,6 +192,7 @@ li {
 .main .card {
     position: relative;
     cursor: pointer;
+    min-height: 484px;
 }
 
 .main .card__wrapper {
