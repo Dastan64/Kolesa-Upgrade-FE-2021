@@ -1,0 +1,43 @@
+.aside {
+    max-width: 150px;
+
+    .list {
+        &__item {
+            &:not(:last-child) {
+                margin-bottom: 26px;
+            }
+        }
+
+        &__link {
+            color: #1c1819;
+
+            &:hover {
+                color: var(--blue-primary);
+            }
+
+            &:active {
+                outline: none;
+                color: var(--blue-primary);
+            }
+
+            &_active {
+                position: relative;
+                font-weight: 600;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    -webkit-transform: translateY(-50%);
+                    -ms-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                    left: -8px;
+                    width: 4px;
+                    height: 36px;
+                    border-radius: 10px;
+                    background-color: #2a81dd;
+                }
+            }
+        }
+    }
+}

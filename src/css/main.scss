@@ -1,0 +1,87 @@
+
+.main {
+    padding-bottom: 192px;
+    max-width: 1038px;
+
+    &__banner-container {
+        margin-bottom: 24px;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__buttons {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        gap: 24px;
+        color: #1c1819;
+    }
+
+    .buttons {
+        button {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            width: 330px;
+            padding: 10px 24px;
+            font-weight: 600;
+            font-size: 1.25rem;
+            line-height: 2rem;
+            border-radius: 16px;
+            border: none;
+            cursor: pointer;
+
+            img {
+                padding-right: 16px;
+            }
+        }
+
+        &__get-scores {
+            background: #eff8eb;
+
+            &:hover {
+                -webkit-box-shadow: 0 0 15px #cdd4c9;
+                box-shadow: 0 0 15px #cdd4c9;
+            }
+        }
+
+        &__how-to {
+            background: #fffae7;
+
+            &:hover {
+                -webkit-box-shadow: 0 0 15px #e2decd;
+                box-shadow: 0 0 15px #e2decd;
+            }
+        }
+
+        &__gift {
+            background: #e9f2fb;
+
+            &:hover {
+                -webkit-box-shadow: 0 0 15px #c5cdd4;
+                box-shadow: 0 0 15px #c5cdd4;
+            }
+        }
+    }
+
+    &__tabs {
+        margin-top: 40px;
+    }
+
+    &__grid {
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+        gap: 24px;
+    }
+}

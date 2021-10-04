@@ -1,3 +1,5 @@
+import '../css/style.scss';
+
 const modalWindowCloseBtn = document.querySelector('.modal-window__close-btn');
 const sizesContainer = document.querySelector('.info__size-options');
 const modalWindowOverlay = document.querySelector('.overlay');
