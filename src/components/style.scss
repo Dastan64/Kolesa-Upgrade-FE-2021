@@ -1,16 +1,14 @@
+@import 'variables';
 @import 'header';
+@import 'search';
+@import 'profile';
 @import 'aside';
 @import 'main';
+@import 'buttons';
 @import 'tabs';
 @import 'card';
 @import 'modal-window';
 @import 'footer';
-
-:root {
-    --blue-primary: #2a81dd;
-    --black-primary: #1c1819;
-    --active-bg-color: #d6ecfb;
-}
 
 * {
     margin: 0;
@@ -25,7 +23,7 @@ body {
 }
 
 body {
-    color: var(--black-primary);
+    color: $blackPrimary;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 

@@ -9,15 +9,15 @@
         }
 
         &__link {
-            color: #1c1819;
+            color: $blackPrimary;
 
             &:hover {
-                color: var(--blue-primary);
+                color: $bluePrimary;
             }
 
             &:active {
                 outline: none;
-                color: var(--blue-primary);
+                color: $bluePrimary;
             }
 
             &_active {
@@ -35,7 +35,7 @@
                     width: 4px;
                     height: 36px;
                     border-radius: 10px;
-                    background-color: #2a81dd;
+                    background-color: $bluePrimary;
                 }
             }
         }

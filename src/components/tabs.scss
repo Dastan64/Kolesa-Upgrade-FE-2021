@@ -23,16 +23,16 @@
             border: 1px solid #e8e8e8;
             border-radius: 8px;
             background-color: transparent;
-            color: var(--blue-primary);
+            color: $bluePrimary;
             cursor: pointer;
 
             &:hover {
-                background-color: #d6ecfb;
-                color: var(--black-primary);
+                background-color: $activeBgColor;
+                color: $blackPrimary;
             }
 
             &_active {
-                background-color: #d6ecfb;
+                background-color: $activeBgColor;
                 color: #1c1819;
             }
         }

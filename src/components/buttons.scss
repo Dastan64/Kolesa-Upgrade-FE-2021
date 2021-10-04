@@ -1,0 +1,46 @@
+.buttons {
+    button {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 330px;
+        padding: 10px 24px;
+        font-weight: 600;
+        font-size: 1.25rem;
+        line-height: 2rem;
+        border-radius: 16px;
+        border: none;
+        cursor: pointer;
+
+        img {
+            padding-right: 16px;
+        }
+    }
+
+    &__get-scores {
+        background: #eff8eb;
+
+        &:hover {
+            @include box-shadow(0, 0, 15px, #cdd4c9);
+        }
+    }
+
+    &__how-to {
+        background: #fffae7;
+
+        &:hover {
+            @include box-shadow(0, 0, 15px, #e2decd);
+        }
+    }
+
+    &__gift {
+        background: #e9f2fb;
+
+        &:hover {
+            @include box-shadow(0, 0, 15px, #c5cdd4);
+        }
+    }
+}
