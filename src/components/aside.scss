@@ -1,14 +1,14 @@
 .aside {
     max-width: 150px;
 
-    .list {
-        &__item {
+    &__list {
+        &-item {
             &:not(:last-child) {
                 margin-bottom: 26px;
             }
         }
 
-        &__link {
+        &-link {
             color: $blackPrimary;
 
             &:hover {

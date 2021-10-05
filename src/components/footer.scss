@@ -21,10 +21,8 @@
 
     &__social-media {
         margin-top: 11px;
-    }
 
-    .social-media {
-        &__link {
+        &-link {
             &:not(:first-child) {
                 margin-left: 14px;
             }
