@@ -178,7 +178,7 @@
 
             &_active {
                 color: $blackPrimary;
-                background-color: var(--active-bg-color);
+                background-color: $activeBgColor;
             }
         }
 
@@ -268,12 +268,12 @@
             cursor: pointer;
 
             &:hover {
-                background-color: var(--active-bg-color);
+                background-color: $activeBgColor;
                 color: $blackPrimary;
             }
 
             &_active {
-                background-color: var(--active-bg-color);
+                background-color: $activeBgColor;
                 color: $blackPrimary;
             }
         }
