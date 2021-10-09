@@ -49,123 +49,233 @@ function onTabClick(item) {
     });
 }
 
-if (tabsBtn.length > 0) {
-    tabsBtn.forEach(onTabClick);
-    document.querySelector('.tabs__nav-btn').click();
-}
-
-const cards = [
+const clothes = [
     {
         src:     '/src/assets/images/t-shirt-card.png',
         webpSrc: '/src/assets/images/t-shirt-card.webp',
+        isNew:   true,
         status:  'New',
         type:    'Футболка',
-        name:    'Эволюционируй или умри',
+        name:    '"Эволюционируй или умри"',
         scores:  '220 баллов',
         sizes:   'S/M/L',
     },
     {
-        src:     '/src/assets/images/t-shirt-card.png',
-        webpSrc: '/src/assets/images/t-shirt-card.webp',
-        status:  'New',
-        type:    'Футболка',
-        name:    'Эволюционируй или умри',
-        scores:  '220 баллов',
-        sizes:   'S/M/L',
-    },
-    {
-        src:     '/src/assets/images/t-shirt-card.png',
-        webpSrc: '/src/assets/images/t-shirt-card.webp',
-        status:  'New',
-        type:    'Футболка',
-        name:    'Эволюционируй или умри',
-        scores:  '220 баллов',
-        sizes:   'S/M/L',
-    },
-    {
-        src:     '/src/assets/images/t-shirt-card.png',
-        webpSrc: '/src/assets/images/t-shirt-card.webp',
-        status:  'New',
-        type:    'Футболка',
-        name:    '',
-        scores:  '220 баллов',
-        sizes:   'S/M/L',
-    },
-    {
-        src:     '/src/assets/images/t-shirt-card.png',
-        webpSrc: '/src/assets/images/t-shirt-card.webp',
-        status:  'New',
-        type:    'Футболка',
-        name:    '',
-        scores:  '220 баллов',
-        sizes:   'S/M/L',
-    },
-    {
-        src:     '/src/assets/images/t-shirt-card.png',
-        webpSrc: '/src/assets/images/t-shirt-card.webp',
-        status:  'New',
-        type:    'Футболка',
-        name:    '',
-        scores:  '220 баллов',
-        sizes:   'S/M/L',
-    },
-    {
-        src:     '/src/assets/images/t-shirt-card.png',
-        webpSrc: '/src/assets/images/t-shirt-card.webp',
-        status:  'New',
-        type:    'Футболка',
-        name:    '',
-        scores:  '220 баллов',
-        sizes:   'S/M/L',
-    },
-    {
-        src:     '/src/assets/images/t-shirt-card.png',
-        webpSrc: '/src/assets/images/t-shirt-card.webp',
-        status:  'New',
-        type:    'Футболка',
-        name:    '',
-        scores:  '220 баллов',
-        sizes:   'S/M/L',
-    },
-    {
-        src:     '/src/assets/images/t-shirt-card.png',
-        webpSrc: '/src/assets/images/t-shirt-card.webp',
+        src:     '/src/assets/images/t-shirt.png',
+        webpSrc: '/src/assets/images/t-shirt.webp',
+        isNew:   true,
         status:  'New',
         type:    'Свитшот',
+        name:    '"По заветам бабушки"',
+        scores:  '230 баллов',
+        sizes:   'M/L',
+    },
+    {
+        src:     '/src/assets/images/belt.png',
+        webpSrc: '/src/assets/images/belt.webp',
+        status:  '',
+        type:    'Ремень',
         name:    '',
-        scores:  '220 баллов',
-        sizes:   'S/M/L',
+        scores:  '80 баллов',
+        sizes:   'XS/XL',
+    },
+    {
+        src:     '/src/assets/images/cap.png',
+        webpSrc: '/src/assets/images/cap.webp',
+        status:  '',
+        type:    'Кепка',
+        name:    '',
+        scores:  '85 баллов',
+        sizes:   'L/XL',
+    },
+    {
+        src:     '/src/assets/images/handkerchief.png',
+        webpSrc: '/src/assets/images/handkerchief.webp',
+        status:  '',
+        type:    'Карманный платок',
+        name:    '',
+        scores:  '50 баллов',
+        sizes:   '45x45 см',
+    },
+    {
+        src:     '/src/assets/images/hat.png',
+        webpSrc: '/src/assets/images/hat.webp',
+        status:  '',
+        type:    'Шапочка',
+        name:    '',
+        scores:  '100 баллов',
+        sizes:   'XS/M',
+    },
+    {
+        src:     '/src/assets/images/mask.png',
+        webpSrc: '/src/assets/images/mask.webp',
+        status:  '',
+        type:    'Маска',
+        name:    '',
+        scores:  '40 баллов',
+        sizes:   'XS',
+    },
+    {
+        src:     '/src/assets/images/polo.png',
+        webpSrc: '/src/assets/images/polo.webp',
+        status:  '',
+        type:    'Поло',
+        name:    '',
+        scores:  '240 баллов',
+        sizes:   'S/M/L/XL',
+    },
+    {
+        src:     '/src/assets/images/socks.png',
+        webpSrc: '/src/assets/images/socks.webp',
+        status:  '',
+        type:    'Носки',
+        name:    '',
+        scores:  '40 баллов',
+        sizes:   'S',
     },
 ];
 
-if (cards.length > 0) {
-    cards.forEach((item) => {
-        const gridItem = document.createElement('div');
-        const {
-            webpSrc, src, status, scores, type, name, sizes,
-        } = item;
+const accessories = [
+    {
+        src:     '/src/assets/images/glasses.png',
+        webpSrc: '/src/assets/images/glasses.webp',
+        isNew:   true,
+        status:  'New',
+        type:    'Очки',
+        name:    '"Авиатор"',
+        scores:  '120 баллов',
+        sizes:   '',
+    },
+    {
+        src:     '/src/assets/images/hanger.png',
+        webpSrc: '/src/assets/images/hanger.webp',
+        isNew:   true,
+        status:  'New',
+        type:    'Вешалка-плечики',
+        name:    '',
+        scores:  '90 баллов',
+        sizes:   '',
+    },
+    {
+        src:     '/src/assets/images/pen.png',
+        webpSrc: '/src/assets/images/pen.webp',
+        status:  '',
+        type:    'Ручка',
+        name:    '',
+        scores:  '40 баллов',
+        sizes:   '',
+    },
+    {
+        src:     '/src/assets/images/phone-handler.png',
+        webpSrc: '/src/assets/images/phone-handler.webp',
+        status:  '',
+        type:    'Поп-сокет',
+        name:    '',
+        scores:  '110 баллов',
+        sizes:   '',
+    },
+    {
+        src:     '/src/assets/images/powerbank.png',
+        webpSrc: '/src/assets/images/powerbank.webp',
+        status:  '',
+        type:    'Powerbank',
+        name:    '',
+        scores:  '320 баллов',
+        sizes:   '',
+    },
+    {
+        src:     '/src/assets/images/usb.png',
+        webpSrc: '/src/assets/images/usb.webp',
+        status:  '',
+        type:    'Флешка',
+        name:    '',
+        scores:  '180 баллов',
+        sizes:   '',
+    },
+    {
+        src:     '/src/assets/images/umbrella.png',
+        webpSrc: '/src/assets/images/umbrella.webp',
+        status:  '',
+        type:    'Зонт',
+        name:    '',
+        scores:  '140 баллов',
+        sizes:   '',
+    },
+    {
+        src:     '/src/assets/images/cable.png',
+        webpSrc: '/src/assets/images/cable.webp',
+        status:  '',
+        type:    'Кабель быстрой зарядки',
+        name:    '',
+        scores:  '180 баллов',
+        sizes:   '',
+    },
+    {
+        src:     '/src/assets/images/pencilcase.png',
+        webpSrc: '/src/assets/images/pencilcase.webp',
+        status:  '',
+        type:    'Пенал',
+        name:    '',
+        scores:  '110 баллов',
+        sizes:   '',
+    },
+];
 
-        gridItem.setAttribute('class', 'grid__item card');
-        gridItem.innerHTML = `
-    <div class="card__wrapper">
-        <div class="card__image-container">
-            <picture>
-                <source srcset=${webpSrc} type="image/webp"><img
-                    src=${src} alt="Изображение футболки">
-            </picture>
-            <div class="card__thumb">
-                <p>${status}</p>
+const allItems = [...clothes, ...accessories];
+
+const allItemsSorted = allItems.sort(item => (item.isNew !== true ? 1 : -1));
+
+function generate(category) {
+    if (category.length > 0) {
+        category.forEach((item) => {
+            const gridItem = document.createElement('div');
+            const {
+                webpSrc, src, status, scores, type, name, sizes,
+            } = item;
+
+            gridItem.setAttribute('class', 'grid__item card');
+            gridItem.innerHTML = `
+        <div class="card__wrapper">
+            <div class="card__image-container">
+                <picture>
+                    <source srcset=${webpSrc} type="image/webp"><img
+                        src=${src} alt="Изображение футболки">
+                </picture>
+                <div class="card__thumb">
+                    <p>${status}</p>
+                </div>
+
             </div>
+            <div class="card__info">
+                <h3 class="card__scores">${scores}</h3>
+                <p class="card__name">${type} ${name}</p>
+                <p class="card__sizes">${sizes !== '' ? 'Размеры' : ''} ${sizes}</p>
+                <button class="card__btn" type="button" title="Заказать">Заказать</button>
+            </div>
+        </div>`;
 
-        </div>
-        <div class="card__info">
-            <h3 class="card__scores">${scores}</h3>
-            <p class="card__name">${type} ${name}</p>
-            <p class="card__sizes">Размеры ${sizes}</p>
-            <button class="card__btn" type="button" title="Заказать">Заказать</button>
-        </div>
-    </div>`;
+            grid.append(gridItem);
+        });
+    }
+}
+document.querySelector('.tabs').addEventListener('click', (e) => {
+    switch (e.target.dataset.tab) {
+        case 'clothes':
+            grid.innerHTML = '';
+            generate(clothes);
+            break;
+        case 'accessories':
+            grid.innerHTML = '';
+            generate(accessories);
+            break;
+        default:
+            grid.innerHTML = '';
+            generate(allItemsSorted);
+            break;
+    }
+});
 
-        grid.append(gridItem);
-    });
+if (tabsBtn.length > 0) {
+    tabsBtn.forEach(onTabClick);
+    document.querySelector('.tabs__nav-btn').click();
 }
