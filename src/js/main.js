@@ -4,7 +4,7 @@ const modalWindowCloseBtn = document.querySelector('.modal-window__close-btn');
 const sizesContainer = document.querySelector('.info__size-options');
 const modalWindowOverlay = document.querySelector('.overlay');
 const colorsContainer = document.querySelector('.colors');
-const listLinks = document.querySelectorAll('.aside__list-link');
+const listLinks = document.querySelectorAll('.list__link');
 const tabsBtn = document.querySelectorAll('.tabs__nav-btn');
 const grid = document.querySelector('.main__grid');
 
@@ -29,9 +29,9 @@ sizesContainer.addEventListener('click', (e) => {
 });
 
 Array.from(listLinks).forEach(item => item.addEventListener('click', () => {
-    if (!item.classList.contains('aside__list-link_active')) {
-        Array.from(listLinks).forEach(link => link.classList.remove('aside__list-link_active'));
-        item.classList.add('aside__list-link_active');
+    if (!item.classList.contains('list__link_active')) {
+        Array.from(listLinks).forEach(link => link.classList.remove('list__link_active'));
+        item.classList.add('list__link_active');
     }
 }));
 
