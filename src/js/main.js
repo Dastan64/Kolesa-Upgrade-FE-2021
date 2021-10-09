@@ -53,6 +53,7 @@ const clothes = [
     {
         src:     '/src/assets/images/t-shirt-card.png',
         webpSrc: '/src/assets/images/t-shirt-card.webp',
+        id:      1,
         isNew:   true,
         status:  'New',
         type:    'Футболка',
@@ -63,6 +64,7 @@ const clothes = [
     {
         src:     '/src/assets/images/t-shirt.png',
         webpSrc: '/src/assets/images/t-shirt.webp',
+        id:      2,
         isNew:   true,
         status:  'New',
         type:    'Свитшот',
@@ -73,6 +75,7 @@ const clothes = [
     {
         src:     '/src/assets/images/belt.png',
         webpSrc: '/src/assets/images/belt.webp',
+        id:      3,
         status:  '',
         type:    'Ремень',
         name:    '',
@@ -82,6 +85,7 @@ const clothes = [
     {
         src:     '/src/assets/images/cap.png',
         webpSrc: '/src/assets/images/cap.webp',
+        id:      4,
         status:  '',
         type:    'Кепка',
         name:    '',
@@ -91,6 +95,7 @@ const clothes = [
     {
         src:     '/src/assets/images/handkerchief.png',
         webpSrc: '/src/assets/images/handkerchief.webp',
+        id:      5,
         status:  '',
         type:    'Карманный платок',
         name:    '',
@@ -100,6 +105,7 @@ const clothes = [
     {
         src:     '/src/assets/images/hat.png',
         webpSrc: '/src/assets/images/hat.webp',
+        id:      6,
         status:  '',
         type:    'Шапочка',
         name:    '',
@@ -109,6 +115,7 @@ const clothes = [
     {
         src:     '/src/assets/images/mask.png',
         webpSrc: '/src/assets/images/mask.webp',
+        id:      7,
         status:  '',
         type:    'Маска',
         name:    '',
@@ -118,6 +125,7 @@ const clothes = [
     {
         src:     '/src/assets/images/polo.png',
         webpSrc: '/src/assets/images/polo.webp',
+        id:      8,
         status:  '',
         type:    'Поло',
         name:    '',
@@ -127,6 +135,7 @@ const clothes = [
     {
         src:     '/src/assets/images/socks.png',
         webpSrc: '/src/assets/images/socks.webp',
+        id:      9,
         status:  '',
         type:    'Носки',
         name:    '',
@@ -140,6 +149,7 @@ const accessories = [
         src:     '/src/assets/images/glasses.png',
         webpSrc: '/src/assets/images/glasses.webp',
         isNew:   true,
+        id:      10,
         status:  'New',
         type:    'Очки',
         name:    '"Авиатор"',
@@ -150,6 +160,7 @@ const accessories = [
         src:     '/src/assets/images/hanger.png',
         webpSrc: '/src/assets/images/hanger.webp',
         isNew:   true,
+        id:      11,
         status:  'New',
         type:    'Вешалка-плечики',
         name:    '',
@@ -159,6 +170,7 @@ const accessories = [
     {
         src:     '/src/assets/images/pen.png',
         webpSrc: '/src/assets/images/pen.webp',
+        id:      12,
         status:  '',
         type:    'Ручка',
         name:    '',
@@ -168,6 +180,7 @@ const accessories = [
     {
         src:     '/src/assets/images/phone-handler.png',
         webpSrc: '/src/assets/images/phone-handler.webp',
+        id:      13,
         status:  '',
         type:    'Поп-сокет',
         name:    '',
@@ -177,6 +190,7 @@ const accessories = [
     {
         src:     '/src/assets/images/powerbank.png',
         webpSrc: '/src/assets/images/powerbank.webp',
+        id:      14,
         status:  '',
         type:    'Powerbank',
         name:    '',
@@ -186,6 +200,7 @@ const accessories = [
     {
         src:     '/src/assets/images/usb.png',
         webpSrc: '/src/assets/images/usb.webp',
+        id:      15,
         status:  '',
         type:    'Флешка',
         name:    '',
@@ -195,6 +210,7 @@ const accessories = [
     {
         src:     '/src/assets/images/umbrella.png',
         webpSrc: '/src/assets/images/umbrella.webp',
+        id:      16,
         status:  '',
         type:    'Зонт',
         name:    '',
@@ -204,6 +220,7 @@ const accessories = [
     {
         src:     '/src/assets/images/cable.png',
         webpSrc: '/src/assets/images/cable.webp',
+        id:      17,
         status:  '',
         type:    'Кабель быстрой зарядки',
         name:    '',
@@ -213,6 +230,7 @@ const accessories = [
     {
         src:     '/src/assets/images/pencilcase.png',
         webpSrc: '/src/assets/images/pencilcase.webp',
+        id:      18,
         status:  '',
         type:    'Пенал',
         name:    '',
