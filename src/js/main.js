@@ -180,7 +180,7 @@ const clothes = [
         type:        'Маска',
         name:        '',
         description: 'Маска, которая даёт Вам +10 к социальной ответственности, а ещё согреет область лица зимой',
-        scores:      '40 баллов',
+        scores:      '45 баллов',
         sizes:       ['XS'],
         colors:      [
             {
@@ -231,7 +231,7 @@ const clothes = [
         name:        '',
         description: 'Тёплые носочки, сделанные из 100%-ного хлопка',
 
-        scores: '40 баллов',
+        scores: '35 баллов',
         sizes:  ['S'],
         colors: [
             {
@@ -289,7 +289,7 @@ const accessories = [
         type:        'Поп-сокет',
         name:        '',
         description: 'Надоело держать телефон в машине? Купи этот поп-сокет и облегчи себе жизнь!',
-        scores:      '110 баллов',
+        scores:      '160 баллов',
     },
     {
         src:              '/src/assets/images/powerbank.png',
@@ -337,7 +337,7 @@ const accessories = [
         isNew:  false,
         type:   'Кабель быстрой зарядки',
         name:   '',
-        scores: '180 баллов',
+        scores: '185 баллов',
     },
     {
         src:              '/src/assets/images/pencilcase.png',
@@ -374,6 +374,20 @@ const colorsMarkup = color => `
 </div>
     `;
 
+const nameAndType = (item) => {
+    let heading;
+
+    if (item.name !== '' && item.type === '') {
+        heading = `<h3 class="info__heading">${item.name}</h3>`;
+    } else if (item.name === '' && item.type) {
+        heading = `<h3 class="info__heading">${item.type}</h3>`;
+    } else if (item.name && item.type) {
+        heading = `<h3 class="info__heading">${item.type} ${item.name}</h3>`;
+    }
+
+    return heading;
+};
+
 function generateModalWindow(item) {
     if (document.querySelector('.overlay')) {
         document.querySelector('.overlay').remove();
@@ -395,7 +409,7 @@ function generateModalWindow(item) {
             </div>
         </div>
         <div class="modal-window__info info">
-            ${item.name ? `<h3 class="info__heading">${item.name}</h3>` : `<h3 class="info__heading">${item.type}</h3>`}
+        ${nameAndType(item)}
             ${item.scores ? `<p class="info__scores">${item.scores}</p>`
         : '<p class="info__scores">Цена неизвестна</p>'}
             <button class="info__btn" type="button">Заказать</button>
@@ -466,14 +480,6 @@ function generateModalWindow(item) {
     document.getElementById('app').append(overlayDiv);
 }
 
-function closeModalWindow(e) {
-    if (e.target.parentNode.classList.contains('modal-window__close-btn')) {
-        e.target.closest('.overlay').classList.add('overlay--hidden');
-    }
-}
-
-document.getElementById('app').addEventListener('click', closeModalWindow);
-
 function assignModalWindow(gridItem) {
     const cardBtn = gridItem.querySelector('.card__btn');
 
@@ -483,6 +489,14 @@ function assignModalWindow(gridItem) {
         generateModalWindow(specificItem);
     });
 }
+
+function closeModalWindow(e) {
+    if (e.target.parentNode.classList.contains('modal-window__close-btn')) {
+        e.target.closest('.overlay').classList.add('overlay--hidden');
+    }
+}
+
+document.getElementById('app').addEventListener('click', closeModalWindow);
 
 function generateCardsFromCategory(category) {
     if (category.length > 0) {
