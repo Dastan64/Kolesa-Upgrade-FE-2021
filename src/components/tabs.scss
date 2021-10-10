@@ -1,0 +1,40 @@
+.tabs {
+    &__nav {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 9px;
+    }
+
+    &__nav-btn {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        min-width: 120px;
+        height: 36px;
+        font-size: 0.875rem;
+        line-height: 1.5rem;
+        border: none;
+        border: 1px solid #e8e8e8;
+        border-radius: 8px;
+        background-color: transparent;
+        color: $bluePrimary;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $activeBgColor;
+            color: $blackPrimary;
+        }
+
+        &--active {
+            background-color: $activeBgColor;
+            color: #1c1819;
+        }
+    }
+}
