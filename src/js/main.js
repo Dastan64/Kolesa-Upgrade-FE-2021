@@ -9,11 +9,11 @@ const tabsBtn = document.querySelectorAll('.tabs__nav-btn');
 const grid = document.querySelector('.main__grid');
 
 colorsContainer.addEventListener('click', (e) => {
-    if (!e.target.closest('.colors__option').classList.contains('.colors__option_active')) {
+    if (!e.target.closest('.colors__option').classList.contains('.colors__option--active')) {
         document.querySelectorAll('.colors__option').forEach((item) => {
-            item.classList.remove('colors__option_active');
+            item.classList.remove('colors__option--active');
         });
-        e.target.closest('.colors__option').classList.add('colors__option_active');
+        e.target.closest('.colors__option').classList.add('colors__option--active');
     }
 });
 
@@ -22,16 +22,16 @@ modalWindowCloseBtn.addEventListener('click', () => {
 });
 
 sizesContainer.addEventListener('click', (e) => {
-    if (!e.target.closest('.sizes__option').classList.contains('sizes__option_active')) {
-        document.querySelectorAll('.sizes__option').forEach(item => item.classList.remove('sizes__option_active'));
-        e.target.closest('.sizes__option').classList.add('sizes__option_active');
+    if (!e.target.closest('.sizes__option').classList.contains('sizes__option--active')) {
+        document.querySelectorAll('.sizes__option').forEach(item => item.classList.remove('sizes__option--active'));
+        e.target.closest('.sizes__option').classList.add('sizes__option--active');
     }
 });
 
 Array.from(listLinks).forEach(item => item.addEventListener('click', () => {
-    if (!item.classList.contains('list__link_active')) {
-        Array.from(listLinks).forEach(link => link.classList.remove('list__link_active'));
-        item.classList.add('list__link_active');
+    if (!item.classList.contains('list__link--active')) {
+        Array.from(listLinks).forEach(link => link.classList.remove('list__link--active'));
+        item.classList.add('list__link--active');
     }
 }));
 
@@ -41,10 +41,10 @@ function onTabClick(item) {
 
         if (!currentBtn.classList.contains('active')) {
             tabsBtn.forEach((tabBtn) => {
-                tabBtn.classList.remove('tabs__nav-btn_active');
+                tabBtn.classList.remove('tabs__nav-btn--active');
             });
 
-            currentBtn.classList.add('tabs__nav-btn_active');
+            currentBtn.classList.add('tabs__nav-btn--active');
         }
     });
 }

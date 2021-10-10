@@ -22,12 +22,6 @@
     &__social-media {
         margin-top: 11px;
 
-        &-link {
-            &:not(:first-child) {
-                margin-left: 14px;
-            }
-        }
-
         img {
             &:hover {
                 transform: scale(1.2);
@@ -36,6 +30,12 @@
             &:not(:first-child) {
                 margin-right: 14px;
             }
+        }
+    }
+
+    &__social-media-link {
+        &:not(:first-child) {
+            margin-left: 14px;
         }
     }
 
@@ -49,11 +49,11 @@
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         gap: 30px;
+    }
 
-        &-text {
-            font-size: 0.875rem;
-            line-height: 1.5rem;
-        }
+    &__action-text {
+        font-size: 0.875rem;
+        line-height: 1.5rem;
     }
 
     &__btn {
