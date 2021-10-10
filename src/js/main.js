@@ -5,9 +5,9 @@ const tabsBtn = document.querySelectorAll('.tabs__nav-btn');
 const grid = document.querySelector('.main__grid');
 
 Array.from(listLinks).forEach(item => item.addEventListener('click', () => {
-    if (!item.classList.contains('list__link_active')) {
-        Array.from(listLinks).forEach(link => link.classList.remove('list__link_active'));
-        item.classList.add('list__link_active');
+    if (!item.classList.contains('list__link--active')) {
+        Array.from(listLinks).forEach(link => link.classList.remove('list__link--active'));
+        item.classList.add('list__link--active');
     }
 }));
 
@@ -447,10 +447,7 @@ function generateModalWindow(item) {
         </div>
 
         <button class="modal-window__close-btn">
-            <picture>
-                <source srcset="/src/assets/images/close-icon.svg" type="image/webp"><img
-                    src="/src/assets/images/close-icon.svg" />
-            </picture>
+            <img src="/src/assets/images/close-icon.svg" />
         </button>
         <div class="modal-window__bottom-balance bottom-balance">
         <div class="bottom-balance__container">
@@ -467,14 +464,15 @@ function generateModalWindow(item) {
     `;
 
     document.getElementById('app').append(overlayDiv);
-
-    const modalWindowCloseBtn = overlayDiv.querySelector('.modal-window__close-btn');
-    const modalWindowOverlay = document.querySelector('.overlay');
-
-    modalWindowCloseBtn.addEventListener('click', () => {
-        modalWindowOverlay.classList.add('overlay_hidden');
-    });
 }
+
+function closeModalWindow(e) {
+    if (e.target.parentNode.classList.contains('modal-window__close-btn')) {
+        e.target.closest('.overlay').classList.add('overlay--hidden');
+    }
+}
+
+document.getElementById('app').addEventListener('click', closeModalWindow);
 
 function assignModalWindow(gridItem) {
     const cardBtn = gridItem.querySelector('.card__btn');
@@ -486,7 +484,7 @@ function assignModalWindow(gridItem) {
     });
 }
 
-function generateCardFromCategory(category) {
+function generateCardsFromCategory(category) {
     if (category.length > 0) {
         grid.innerHTML = '';
         category.forEach((item) => {
@@ -530,10 +528,10 @@ function onTabClick(item) {
 
         if (!currentBtn.classList.contains('active')) {
             tabsBtn.forEach((tabBtn) => {
-                tabBtn.classList.remove('tabs__nav-btn_active');
+                tabBtn.classList.remove('tabs__nav-btn--active');
             });
 
-            currentBtn.classList.add('tabs__nav-btn_active');
+            currentBtn.classList.add('tabs__nav-btn--active');
         }
     });
 }
@@ -541,13 +539,13 @@ function onTabClick(item) {
 document.querySelector('.tabs').addEventListener('click', (e) => {
     switch (e.target.dataset.category) {
         case 'clothes':
-            generateCardFromCategory(clothes);
+            generateCardsFromCategory(clothes);
             break;
         case 'accessories':
-            generateCardFromCategory(accessories);
+            generateCardsFromCategory(accessories);
             break;
         default:
-            generateCardFromCategory(allItemsSorted);
+            generateCardsFromCategory(allItemsSorted);
             break;
     }
 });

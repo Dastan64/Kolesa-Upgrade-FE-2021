@@ -11,7 +11,7 @@
     align-items: center;
     z-index: 2;
 
-    &_hidden {
+    &--hidden {
         display: none;
     }
 }
@@ -106,15 +106,15 @@
         padding: 8px 16px;
         border-radius: 16px;
         background-color: #f0fafd;
+    }
 
-        &-icon-container img {
-            padding-left: 23px;
-        }
+    &__balance-icon-container img {
+        padding-left: 23px;
+    }
 
-        &-heading {
-            font-size: 0.875rem;
-            margin-bottom: 4px;
-        }
+    &__balance-heading {
+        font-size: 0.875rem;
+        margin-bottom: 4px;
     }
 
     &__colors {
@@ -127,22 +127,22 @@
 
     &__details {
         margin-top: 24px;
+    }
 
-        &-text {
-            margin-top: 4px;
-            line-height: 1.5rem;
-            font-size: 0.875rem;
-        }
+    &__details-text {
+        margin-top: 4px;
+        line-height: 1.5rem;
+        font-size: 0.875rem;
     }
 
     &__how-to {
         margin-top: 24px;
+    }
 
-        &-answer {
-            margin-top: 4px;
-            line-height: 1.5rem;
-            font-size: 0.875rem;
-        }
+    &__how-to-answer {
+        margin-top: 4px;
+        line-height: 1.5rem;
+        font-size: 0.875rem;
     }
 }
 
@@ -153,7 +153,7 @@
         margin-left: 8px;
     }
 
-    &_active {
+    &--active {
         border: 1px solid $bluePrimary;
         border-radius: 8px;
     }
@@ -178,7 +178,7 @@
             background-color: $activeBgColor;
         }
 
-        &_active {
+        &--active {
             color: $blackPrimary;
             background-color: $activeBgColor;
         }
@@ -188,13 +188,13 @@
         appearance: none;
         -webkit-appearance: none;
         position: absolute;
+    }
 
-        &-label {
-            font-size: 0.875rem;
-            cursor: pointer;
-            padding: 8px 12px 8px 25px;
-            margin-left: 15px;
-        }
+    &__radio-label {
+        font-size: 0.875rem;
+        cursor: pointer;
+        padding: 8px 12px 8px 25px;
+        margin-left: 15px;
     }
 }
 
@@ -233,7 +233,7 @@
             color: $blackPrimary;
         }
 
-        &_active {
+        &--active {
             background-color: $activeBgColor;
             color: $blackPrimary;
         }
