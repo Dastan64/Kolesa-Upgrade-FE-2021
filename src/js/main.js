@@ -21,7 +21,6 @@ const allItemsSorted = allItems.sort(item => (item.isNew !== true ? 1 : -1));
 
 function sizesMarkup(size) {
     return `
-
         <div class="sizes__option">
                 <p>${size}</p>
             </div>`;
@@ -46,7 +45,6 @@ const nameAndType = (item) => {
     } else if (item.name && item.type) {
         heading = `<h3 class="info__heading">${item.type} ${item.name}</h3>`;
     }
-
     return heading;
 };
 
