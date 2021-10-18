@@ -1,0 +1,37 @@
+
+.main {
+    padding-bottom: 192px;
+    max-width: 1038px;
+
+    &__banner-container {
+        margin-bottom: 24px;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__buttons {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        gap: 24px;
+        color: #1c1819;
+    }
+
+    &__tabs {
+        margin-top: 40px;
+    }
+
+    &__grid {
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+        gap: 24px;
+    }
+}

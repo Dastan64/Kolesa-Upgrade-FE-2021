@@ -1,0 +1,88 @@
+.footer {
+    background-color: $blackPrimary;
+    color: #fff;
+
+    &__wrapper {
+        max-width: 1368px;
+        margin: 0 auto;
+        padding: 20px 26px 28px 32px;
+    }
+
+    &__container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    &__social-media {
+        margin-top: 11px;
+
+        img {
+            &:hover {
+                transform: scale(1.2);
+            }
+
+            &:not(:first-child) {
+                margin-right: 14px;
+            }
+        }
+    }
+
+    &__social-media-link {
+        &:not(:first-child) {
+            margin-left: 14px;
+        }
+    }
+
+    &__action {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    &__action-text {
+        font-size: 0.875rem;
+        line-height: 1.5rem;
+    }
+
+    &__btn {
+        min-width: 150px;
+        min-height: 36px;
+        border: none;
+        border-radius: 8px;
+        color: #2a81dd;
+        background-color: #fff;
+        font-size: 0.875rem;
+        cursor: pointer;
+
+        @include box-shadow(0, 2px, 4px, rgba(28, 24, 25, 0.1));
+
+        -webkit-transition:
+            background-color 0.3s ease-in-out,
+            color 0.3s ease-in-out;
+        -o-transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+        &:hover {
+            background-color: $bluePrimary;
+            color: #fff;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .footer__container {
+        gap: 16px;
+    }
+}

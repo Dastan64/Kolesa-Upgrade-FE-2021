@@ -1,0 +1,7 @@
+$bluePrimary: #2a81dd;
+$blackPrimary: #1c1819;
+$activeBgColor: #d6ecfb;
+
+@mixin box-shadow($x, $y, $blur, $color) {
+    box-shadow: $x $y $blur $color;
+}

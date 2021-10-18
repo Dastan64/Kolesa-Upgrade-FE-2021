@@ -1,0 +1,114 @@
+.card {
+    cursor: pointer;
+    min-height: 484px;
+
+    &__wrapper {
+        position: relative;
+        background-color: #fff;
+        max-width: 330px;
+    }
+
+    &:hover {
+        & .card__wrapper {
+            @include box-shadow(0, 2px, 10px, rgba(7, 4, 5, 0.1));
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 8px;
+            z-index: 1;
+        }
+
+        & .card__scores {
+            color: #f33;
+        }
+
+        & .card__btn {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+    }
+
+    &__image-container {
+        position: relative;
+        max-height: 330px;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__thumb {
+        position: absolute;
+        bottom: 16px;
+        left: 20px;
+        text-transform: uppercase;
+        border-radius: 4px;
+        padding: 0 4px;
+        width: 38px;
+        font-size: 0.8125rem;
+        background-color: #64bd38;
+        color: #fff;
+    }
+
+    &__info {
+        padding-top: 16px;
+        padding-left: 16px;
+        padding-right: 24px;
+        padding-bottom: 26px;
+    }
+
+    &__scores {
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: $bluePrimary;
+        line-height: 2.25rem;
+    }
+
+    &__name {
+        color: $blackPrimary;
+        line-height: 1.5rem;
+        font-weight: 600;
+        font-size: 1rem;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+    }
+
+    &__sizes {
+        margin-top: 4px;
+        font-size: 0.875rem;
+        line-height: 1.5rem;
+        color: #888b94;
+    }
+
+    &__btn {
+        display: none;
+        width: 298px;
+        height: 44px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        border: none;
+        border-radius: 8px;
+        background-color: $bluePrimary;
+
+        @include box-shadow(0, 2px, 4px, rgba(28, 24, 25, 0.1));
+
+        color: #fff;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #ffdd61;
+            color: $blackPrimary;
+        }
+    }
+}
