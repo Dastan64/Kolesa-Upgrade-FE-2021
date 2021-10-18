@@ -26,11 +26,15 @@ body {
 
 body {
     color: $blackPrimary;
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 a {
     text-decoration: none;
+}
+
+button {
+    font-family: 'Open Sans', sans-serif;
 }
 
 li {
@@ -38,7 +42,6 @@ li {
 }
 
 .app {
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100%;

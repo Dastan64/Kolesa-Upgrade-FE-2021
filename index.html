@@ -6,8 +6,7 @@
     <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <title>Vite App</title>
 </head>
 
@@ -102,142 +101,15 @@
                 </div>
                 <div class="main__tabs tabs">
                     <div class="tabs__nav">
-                        <button class="tabs__nav-btn" type="button" data-tab="#tab_1">Все товары</button>
-                        <button class="tabs__nav-btn" type="button" data-tab="#tab_2">Одежда</button>
-                        <button class="tabs__nav-btn" type="button" data-tab="#tab_3">Аксессуары</button>
+                        <button class="tabs__nav-btn tabs__nav-btn--active" type="button" data-category="allItems">Все
+                            товары</button>
+                        <button class="tabs__nav-btn" type="button" data-category="clothes">Одежда</button>
+                        <button class="tabs__nav-btn" type="button" data-category="accessories">Аксессуары</button>
                     </div>
                 </div>
                 <div class="main__grid grid">
                 </div>
             </main>
-        </div>
-        <div class="overlay overlay--hidden">
-            <div class="modal-window">
-                <div class="modal-window__container">
-                    <div class="modal-window__images">
-                        <div class="modal-window__main-image-container">
-                            <picture>
-                                <source srcset="/src/assets/images/t-shirt.webp" type="image/webp"><img
-                                    src="/src/assets/images/t-shirt.png" alt="Изображение футболки" width="330px"
-                                    height="330px">
-                            </picture>
-                        </div>
-                        <div class="modal-window__preview-images preview">
-                            <div class="preview__image-container">
-                                <picture>
-                                    <source srcset="/src/assets/images/preview-1.webp" type="image/webp"><img
-                                        class="preview__image" src="/src/assets/images/preview-1.jpg" alt="">
-                                </picture>
-                            </div>
-                            <div class="preview__image-container">
-                                <picture>
-                                    <source srcset="/src/assets/images/preview-2.webp" type="image/webp"><img
-                                        class="preview__image preview__image--active"
-                                        src="/src/assets/images/preview-2.jpg" alt="">
-                                </picture>
-                            </div>
-                            <div class="preview__image-container">
-                                <picture>
-                                    <source srcset="/src/assets/images/preview-3.webp" type="image/webp"><img
-                                        class="preview__image" src="/src/assets/images/preview-3.jpg" alt="">
-                                </picture>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-window__info info">
-                        <h3 class="info__heading">Футболка "Эволюционируй или сдохни"</h3>
-                        <p class="info__scores">100 баллов</p>
-                        <button class="info__btn" type="button">Заказать</button>
-
-                        <div class="info__balance">
-                            <div class="info__balance-text">
-                                <p class="info__balance-heading">Твой баланс</p>
-                                <p class="info__balance-number">3 945 баллов</p>
-                            </div>
-                            <div class="info__balance-icon-container">
-                                <picture>
-                                    <source srcset="/src/assets/images/bags.webp" type="image/webp"><img
-                                        src="/src/assets/images/bags.png" alt="Картинка сумок">
-                                </picture>
-                            </div>
-                        </div>
-
-                        <div class="info__colors">
-                            <p class="info__colors-heading">Цвета:</p>
-                            <div class="info__colors-options colors">
-                                <div class="colors__option colors__option--active">
-
-                                    <label class="colors__radio-label colors__radio-label--blue" for="blue"> <input
-                                            class="colors__radio colors__radio--blue" type="radio" name="Синий цвет"
-                                            id="blue"><span class="box box--blue"></span><span
-                                            class="mini-box mini-box--blue"></span>Синий</label>
-                                </div>
-                                <div class="colors__option">
-                                    <label class="colors__radio-label colors__radio-label--beige" for="beige">
-                                        <input class="colors__radio colors_radio--beige" type="radio"
-                                            name="Бежевый цвет" id="beige"><span class="box box--beige"></span><span
-                                            class="mini-box mini-box--beige"></span>Бежевый</label>
-                                </div>
-                                <div class="colors__option">
-
-                                    <label class="colors__radio-label colors__radio-label--grey" for="grey"> <input
-                                            class="colors__radio colors_radio--grey" type="radio" name="Серый цвет"
-                                            id="grey"><span class="box box--grey"></span><span
-                                            class="mini-box mini-box--grey"></span>Серый</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="info__sizes">
-                            <p class="info__size-heading">Размер:</p>
-                            <div class="info__size-options sizes">
-                                <div class="sizes__option">
-                                    <p>S</p>
-                                </div>
-                                <div class="sizes__option">
-                                    <p>M</p>
-                                </div>
-                                <div class="sizes__option">
-                                    <p>L</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="info__details">
-                            <strong>
-                                <p class="info__details-heading">Детали:</p>
-                            </strong>
-                            <p class="info__details-text">Брендированная толстовка от Qazaq Republic. Материал:
-                                Хлопок
-                                80%, Вискоза 20%</p>
-                        </div>
-
-                        <div class="info__how-to">
-                            <strong>
-                                <p class="info__how-to-heading">Как выбрать размер?</p>
-                            </strong>
-                            <p class="info__how-to-answer">Написать дяде Рику для уточнения.</p>
-                        </div>
-
-                    </div>
-
-                    <button class="modal-window__close-btn">
-                        <picture>
-                            <source srcset="/src/assets/images/close-icon.svg" type="image/webp"><img
-                                src="/src/assets/images/close-icon.svg" />
-                        </picture>
-                    </button>
-                </div>
-                <div class="modal-window__bottom-balance bottom-balance">
-                    <div class="bottom-balance__container">
-                        <p class="bottom-balance__caption">Твои баллы:</p>
-                        <strong>
-                            <p class="bottom-balance__number">450 баллов</p>
-                        </strong>
-                    </div>
-                    <button class="bottom-balance__btn" type="button">Заказать</button>
-                </div>
-            </div>
         </div>
         <footer class="footer">
             <div class="footer__wrapper">
