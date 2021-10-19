@@ -43,10 +43,16 @@
         <div class="aside__wrapper">
           <nav class="aside__nav">
             <ul class="aside__list list">
-              <li class="list__item">
-                <a class="list__link" href="#">Оргсхема</a>
+              <li class="list__item" v-for="(link, index) in navLinks" :key="index">
+                <a
+                  class="list__link"
+                  :class="{ 'list__link--active': selectedLink === link }"
+                  href="#"
+                  @click="selectedLink = link"
+                  >{{ link }}</a
+                >
               </li>
-              <li class="list__item">
+              <!-- <li class="list__item">
                 <a class="list__link" href="#">Kolesa Team</a>
               </li>
               <li class="list__item">
@@ -67,7 +73,7 @@
               <li class="list__item">
                 <a class="list__link" href="#">Библиотека</a>
               </li>
-              <li class="list__item"><a class="list__link" href="#">FAQ</a></li>
+              <li class="list__item"><a class="list__link" href="#">FAQ</a></li> -->
             </ul>
           </nav>
         </div>
@@ -104,23 +110,6 @@
         </div>
         <div class="main__tabs tabs">
           <div class="tabs__nav">
-            <!-- <button
-              class="tabs__nav-btn"
-              type="button"
-              data-category="allItems"
-            >
-              Все товары
-            </button>
-            <button class="tabs__nav-btn" type="button" data-category="clothes">
-              Одежда
-            </button>
-            <button
-              class="tabs__nav-btn"
-              type="button"
-              data-category="accessories"
-            >
-              Аксессуары
-            </button> -->
             <button
               v-for="(tab, index) in tabs"
               :key="index"
@@ -768,7 +757,20 @@ export default {
         },
       ],
       tabs: ['Все товары', 'Одежда', 'Аксессуары'],
+      navLinks: [
+        'Оргсхема',
+        'Kolesa Team',
+        'Kolesa Shop',
+        'Картина компании',
+        'Новости',
+        'Education',
+        'Guidelines',
+        'Библиотека',
+        'FAQ',
+      ],
       selectedTab: 'Все товары',
+      selectedLink: 'Kolesa Shop',
+      isLinkActive: true,
       isModalOpen: false,
     };
   },
