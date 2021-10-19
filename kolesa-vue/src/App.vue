@@ -7,30 +7,16 @@
             <div class="header__logo-container">
               <a href="#">
                 <picture>
-                  <source
-                    srcset="./assets/images/kolesa-logo.svg"
-                    type="image/webp"
-                  />
-                  <img
-                    src="./assets/images/kolesa-logo.svg"
-                    alt="Логотип Kolesa"
-                  />
+                  <source srcset="./assets/images/kolesa-logo.svg" type="image/webp" />
+                  <img src="./assets/images/kolesa-logo.svg" alt="Логотип Kolesa" />
                 </picture>
               </a>
             </div>
             <div class="header__search search">
               <form class="search__form">
-                <input
-                  type="text"
-                  class="search__input"
-                  placeholder="Поиск"
-                  required
-                />
+                <input type="text" class="search__input" placeholder="Поиск" required />
                 <button type="submit" class="search__btn">
-                  <img
-                    src="./assets/images/search-icon.svg"
-                    alt="Иконка поиска"
-                  />
+                  <img src="./assets/images/search-icon.svg" alt="Иконка поиска" />
                 </button>
               </form>
             </div>
@@ -39,14 +25,8 @@
             <div class="header__profile-container profile">
               <div class="profile__image-container">
                 <picture>
-                  <source
-                    srcset="./assets/images/profile-avatar.webp"
-                    type="image/webp"
-                  />
-                  <img
-                    src="./assets/images/profile-avatar.png"
-                    alt="Аватарка профиля"
-                  />
+                  <source srcset="./assets/images/profile-avatar.webp" type="image/webp" />
+                  <img src="./assets/images/profile-avatar.png" alt="Аватарка профиля" />
                 </picture>
               </div>
               <div class="profile__descr">
@@ -70,9 +50,7 @@
                 <a class="list__link" href="#">Kolesa Team</a>
               </li>
               <li class="list__item">
-                <a class="list__link list__link--active" href="#"
-                  >Kolesa Shop</a
-                >
+                <a class="list__link list__link--active" href="#">Kolesa Shop</a>
               </li>
               <li class="list__item">
                 <a class="list__link" href="#">Картина компании</a>
@@ -104,30 +82,21 @@
         <div class="main__buttons buttons">
           <button class="buttons__get-scores" type="button">
             <picture>
-              <source
-                srcset="./assets/images/plus-icon.webp"
-                type="image/webp"
-              />
+              <source srcset="./assets/images/plus-icon.webp" type="image/webp" />
               <img src="./assets/images/plus-icon.png" alt="" />
             </picture>
             Получить баллы
           </button>
           <button class="buttons__how-to" type="button">
             <picture>
-              <source
-                srcset="./assets/images/question-icon.webp"
-                type="image/webp"
-              />
+              <source srcset="./assets/images/question-icon.webp" type="image/webp" />
               <img src="./assets/images/question-icon.png" alt="" />
             </picture>
             Как получить баллы
           </button>
           <button class="buttons__gift" type="button">
             <picture>
-              <source
-                srcset="./assets/images/gift-icon.webp"
-                type="image/webp"
-              />
+              <source srcset="./assets/images/gift-icon.webp" type="image/webp" />
               <img src="./assets/images/gift-icon.png" alt="" />
             </picture>
             Подарить баллы
@@ -135,8 +104,8 @@
         </div>
         <div class="main__tabs tabs">
           <div class="tabs__nav">
-            <button
-              class="tabs__nav-btn tabs__nav-btn--active"
+            <!-- <button
+              class="tabs__nav-btn"
               type="button"
               data-category="allItems"
             >
@@ -151,18 +120,23 @@
               data-category="accessories"
             >
               Аксессуары
+            </button> -->
+            <button
+              v-for="(tab, index) in tabs"
+              :key="index"
+              class="tabs__nav-btn"
+              :class="{ 'tabs__nav-btn--active': selectedTab === tab }"
+              @click="selectedTab = tab"
+            >
+              {{ tab }}
             </button>
           </div>
         </div>
-        <div class="main__grid grid">
-          <div class="grid__item card" v-for="item in clothes" :key="item.id">
+        <div class="main__grid grid" v-if="selectedTab === 'Все товары'">
+          <div class="grid__item card" v-for="item in allItemsSorted" :key="item.id">
             <div class="card__wrapper">
               <div class="card__image-container">
-                <img
-                  :src="require(`@/assets/images/${item.tName}.png`)"
-                  alt=""
-                  :id="item.id"
-                />
+                <img :src="require(`@/assets/images/${item.tName}.png`)" alt="" :id="item.id" />
                 <div class="card__thumb" v-if="item.isNew">
                   <p>New</p>
                 </div>
@@ -173,16 +147,217 @@
                 </h3>
                 <h3 class="card__scores" v-else>Цена неизвестна</h3>
                 <p class="card__name">{{ item.type }} {{ item.name }}</p>
-                <p class="card__sizes">Размеры: {{ item.sizes.join(', ') }}</p>
+                <p class="card__sizes" v-if="item.sizes">Размеры: {{ item.sizes.join(', ') }}</p>
                 <button
                   class="card__btn"
                   type="button"
                   title="Заказать"
                   :data-id="item.id"
+                  @click="openModalWindow"
                 >
                   Заказать
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="main__grid grid" v-if="selectedTab === 'Одежда'">
+          <div class="grid__item card" v-for="item in clothes" :key="item.id">
+            <div class="card__wrapper">
+              <div class="card__image-container">
+                <img :src="require(`@/assets/images/${item.tName}.png`)" alt="" :id="item.id" />
+                <div class="card__thumb" v-if="item.isNew">
+                  <p>New</p>
+                </div>
+              </div>
+              <div class="card__info">
+                <h3 class="card__scores" v-if="item.scores">
+                  {{ item.scores }}
+                </h3>
+                <h3 class="card__scores" v-else>Цена неизвестна</h3>
+                <p class="card__name">{{ item.type }} {{ item.name }}</p>
+                <p class="card__sizes" v-if="item.sizes">Размеры: {{ item.sizes.join(', ') }}</p>
+                <button
+                  class="card__btn"
+                  type="button"
+                  title="Заказать"
+                  :data-id="item.id"
+                  @click="openModalWindow"
+                >
+                  Заказать
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main__grid grid" v-if="selectedTab === 'Аксессуары'">
+          <div class="grid__item card" v-for="item in accessories" :key="item.id">
+            <div class="card__wrapper">
+              <div class="card__image-container">
+                <img :src="require(`@/assets/images/${item.tName}.png`)" alt="" :id="item.id" />
+                <div class="card__thumb" v-if="item.isNew">
+                  <p>New</p>
+                </div>
+              </div>
+              <div class="card__info">
+                <h3 class="card__scores" v-if="item.scores">
+                  {{ item.scores }}
+                </h3>
+                <h3 class="card__scores" v-else>Цена неизвестна</h3>
+                <p class="card__name">{{ item.type }} {{ item.name }}</p>
+                <p class="card__sizes" v-if="item.sizes">Размеры: {{ item.sizes.join(', ') }}</p>
+                <button
+                  class="card__btn"
+                  type="button"
+                  title="Заказать"
+                  :data-id="item.id"
+                  @click="openModalWindow"
+                >
+                  Заказать
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal" v-if="isModalOpen">
+          <div class="modal__overlay" @click="closeModalWindow"></div>
+          <div class="modal__window modal-window">
+            <div class="modal-window__container">
+              <div class="modal-window__images">
+                <div class="modal-window__main-image-container">
+                  <picture>
+                    <source srcset="./assets/images/t-shirt.webp" type="image/webp" />
+                    <img
+                      src="./assets/images/t-shirt.png"
+                      alt="Изображение футболки"
+                      width="330px"
+                      height="330px"
+                    />
+                  </picture>
+                </div>
+                <div class="modal-window__preview-images preview">
+                  <div class="preview__image-container">
+                    <picture>
+                      <source srcset="./assets/images/preview-1.webp" type="image/webp" />
+                      <img class="preview__image" src="./assets/images/preview-1.jpg" alt="" />
+                    </picture>
+                  </div>
+                  <div class="preview__image-container">
+                    <picture>
+                      <source srcset="./assets/images/preview-2.webp" type="image/webp" />
+                      <img
+                        class="preview__image preview__image_active"
+                        src="./assets/images/preview-2.jpg"
+                        alt=""
+                      />
+                    </picture>
+                  </div>
+                  <div class="preview__image-container">
+                    <picture>
+                      <source srcset="./assets/images/preview-3.webp" type="image/webp" />
+                      <img class="preview__image" src="./assets/images/preview-3.jpg" alt="" />
+                    </picture>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-window__info info">
+                <h3 class="info__heading">Футболка "Эволюционируй или сдохни"</h3>
+                <p class="info__scores">100 баллов</p>
+                <button class="info__btn" type="button">Заказать</button>
+
+                <div class="info__balance">
+                  <div class="info__balance-text">
+                    <p class="info__balance-heading">Твой баланс</p>
+                    <p class="info__balance-number">3 945 баллов</p>
+                  </div>
+                  <div class="info__balance-icon-container">
+                    <picture>
+                      <source srcset="./assets/images/bags.webp" type="image/webp" />
+                      <img src="./assets/images/bags.png" alt="Картинка сумок" />
+                    </picture>
+                  </div>
+                </div>
+
+                <div class="info__colors">
+                  <p class="info__colors-heading">Цвета:</p>
+                  <div class="info__colors-options colors">
+                    <div class="colors__option">
+                      <label class="colors__radio-label">
+                        <input class="colors__radio" type="radio" /><span
+                          style="background-color: #00458a"
+                          class="box"
+                        ></span
+                        >Синий</label
+                      >
+                    </div>
+                    <div class="colors__option">
+                      <label class="colors__radio-label">
+                        <input class="colors__radio" type="radio" /><span
+                          style="background-color: #efe8d8"
+                          class="box"
+                        ></span
+                        >Бежевый</label
+                      >
+                    </div>
+                    <div class="colors__option">
+                      <label class="colors__radio-label">
+                        <input class="colors__radio" type="radio" /><span
+                          style="background-color: #d4d4da"
+                          class="box"
+                        ></span
+                        >Серый</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="info__sizes">
+                  <p class="info__size-heading">Размер:</p>
+                  <div class="info__size-options sizes">
+                    <div class="sizes__option">
+                      <p>S</p>
+                    </div>
+                    <div class="sizes__option">
+                      <p>M</p>
+                    </div>
+                    <div class="sizes__option">
+                      <p>L</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="info__details">
+                  <strong>
+                    <p class="info__details-heading">Детали:</p>
+                  </strong>
+                  <p class="info__details-text">
+                    Брендированная толстовка от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%
+                  </p>
+                </div>
+
+                <div class="info__how-to">
+                  <strong>
+                    <p class="info__how-to-heading">Как выбрать размер?</p>
+                  </strong>
+                  <p class="info__how-to-answer">Написать дяде Рику для уточнения.</p>
+                </div>
+              </div>
+
+              <button class="modal-window__close-btn" @click="closeModalWindow">
+                <picture>
+                  <source srcset="./assets/images/close-icon.svg" type="image/webp" />
+                  <img src="./assets/images/close-icon.svg" />
+                </picture>
+              </button>
+            </div>
+            <div class="modal-window__bottom-balance bottom-balance">
+              <div class="bottom-balance__container">
+                <p class="bottom-balance__caption">Твои баллы:</p>
+                <strong>
+                  <p class="bottom-balance__number">450 баллов</p>
+                </strong>
+              </div>
+              <button class="bottom-balance__btn" type="button">Заказать</button>
             </div>
           </div>
         </div>
@@ -195,16 +370,10 @@
             <p>&copy; Kolesa Group</p>
             <div class="footer__social-media">
               <a class="footer__social-media-link" href="#">
-                <img
-                  src="./assets/images/instagram-icon.svg"
-                  alt="Иконка Инстаграма"
-                />
+                <img src="./assets/images/instagram-icon.svg" alt="Иконка Инстаграма" />
               </a>
               <a class="footer__social-media-link" href="#">
-                <img
-                  src="./assets/images/youtube-icon.svg"
-                  alt="Иконка YouTube"
-                />
+                <img src="./assets/images/youtube-icon.svg" alt="Иконка YouTube" />
               </a>
               <a class="footer__social-media-link" href="#">
                 <img src="./assets/images/vk-icon.svg" alt="Иконка ВКонтакте" />
@@ -214,9 +383,7 @@
           <div class="footer__action">
             <div class="footer__action-text-container">
               <p class="footer__action-text">Есть идеи что улучшить?</p>
-              <p class="footer__action-text">
-                Не знаешь, с кем решить проблему?
-              </p>
+              <p class="footer__action-text">Не знаешь, с кем решить проблему?</p>
             </div>
             <button class="footer__btn" type="button">Написать</button>
           </div>
@@ -235,8 +402,8 @@ export default {
         {
           src: 't-shirt-card',
           tName: 't-shirt-card',
-          webpSrc: '/src/assets/images/t-shirt-card.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          webpSrc: './assets/images/t-shirt-card.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
           id: 1,
           isNew: true,
           type: 'Футболка',
@@ -266,8 +433,8 @@ export default {
         {
           src: 't-shirt',
           tName: 't-shirt',
-          webpSrc: '/src/assets/images/t-shirt.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          webpSrc: './assets/images/t-shirt.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 2,
           isNew: true,
@@ -299,8 +466,8 @@ export default {
         {
           src: './assets/images/belt.png',
           tName: 'belt',
-          webpSrc: '/src/assets/images/belt.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          webpSrc: './assets/images/belt.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 3,
           isNew: false,
@@ -326,15 +493,14 @@ export default {
         {
           src: './assets/images/cap.png',
           tName: 'cap',
-          webpSrc: '/src/assets/images/cap.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          webpSrc: './assets/images/cap.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 4,
           isNew: false,
           type: 'Кепка',
           name: '',
-          description:
-            'Кепка от Kolesa Group, полностью изготовленная из хлопка',
+          description: 'Кепка от Kolesa Group, полностью изготовленная из хлопка',
 
           scores: '85 баллов',
           sizes: ['L', 'XL'],
@@ -359,8 +525,8 @@ export default {
         {
           src: './assets/images/handkerchief.png',
           tName: 'handkerchief',
-          webpSrc: '/src/assets/images/handkerchief.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          webpSrc: './assets/images/handkerchief.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 5,
           isNew: false,
@@ -374,8 +540,8 @@ export default {
         {
           src: './assets/images/hat.png',
           tName: 'hat',
-          webpSrc: '/src/assets/images/hat.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          webpSrc: './assets/images/hat.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 6,
           isNew: false,
@@ -400,8 +566,8 @@ export default {
         {
           src: './assets/images/mask.png',
           tName: 'mask',
-          webpSrc: '/src/assets/images/mask.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          webpSrc: './assets/images/mask.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 7,
           isNew: false,
@@ -427,8 +593,8 @@ export default {
         {
           src: './assets/images/polo.png',
           tName: 'polo',
-          webpSrc: '/src/assets/images/polo.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          webpSrc: './assets/images/polo.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 8,
           isNew: false,
@@ -453,8 +619,8 @@ export default {
         {
           src: './assets/images/socks.png',
           tName: 'socks',
-          webpSrc: '/src/assets/images/socks.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          webpSrc: './assets/images/socks.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 9,
           isNew: false,
@@ -476,8 +642,10 @@ export default {
       accessories: [
         {
           src: './assets/images/glasses.png',
-          webpSrc: '/src/assets/images/glasses.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          tName: 'glasses',
+
+          webpSrc: './assets/images/glasses.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           isNew: true,
           id: 10,
@@ -488,8 +656,10 @@ export default {
         },
         {
           src: './assets/images/hanger.png',
-          webpSrc: '/src/assets/images/hanger.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          tName: 'hanger',
+
+          webpSrc: './assets/images/hanger.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           isNew: true,
           id: 11,
@@ -499,8 +669,10 @@ export default {
         },
         {
           src: './assets/images/pen.png',
-          webpSrc: '/src/assets/images/pen.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          tName: 'pen',
+
+          webpSrc: './assets/images/pen.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 12,
           isNew: false,
@@ -511,8 +683,9 @@ export default {
         },
         {
           src: './assets/images/phone-handler.png',
-          webpSrc: '/src/assets/images/phone-handler.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          tName: 'phone-handler',
+          webpSrc: './assets/images/phone-handler.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 13,
           isNew: false,
@@ -524,8 +697,10 @@ export default {
         },
         {
           src: './assets/images/powerbank.png',
-          webpSrc: '/src/assets/images/powerbank.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          tName: 'powerbank',
+
+          webpSrc: './assets/images/powerbank.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 14,
           isNew: false,
@@ -536,8 +711,10 @@ export default {
         },
         {
           src: './assets/images/usb.png',
-          webpSrc: '/src/assets/images/usb.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          tName: 'usb',
+
+          webpSrc: './assets/images/usb.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 15,
           isNew: false,
@@ -549,8 +726,10 @@ export default {
         },
         {
           src: './assets/images/umbrella.png',
-          webpSrc: '/src/assets/images/umbrella.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          tName: 'umbrella',
+
+          webpSrc: './assets/images/umbrella.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 16,
           isNew: false,
@@ -562,8 +741,10 @@ export default {
         },
         {
           src: './assets/images/cable.png',
-          webpSrc: '/src/assets/images/cable.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          tName: 'cable',
+
+          webpSrc: './assets/images/cable.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 17,
           isNew: false,
@@ -573,8 +754,10 @@ export default {
         },
         {
           src: './assets/images/pencilcase.png',
-          webpSrc: '/src/assets/images/pencilcase.webp',
-          placeholderImage: '/src/assets/images/image-placeholder.jpg',
+          tName: 'pencilcase',
+
+          webpSrc: './assets/images/pencilcase.webp',
+          placeholderImage: './assets/images/image-placeholder.jpg',
 
           id: 18,
           isNew: false,
@@ -584,11 +767,28 @@ export default {
           scores: '110 баллов',
         },
       ],
+      tabs: ['Все товары', 'Одежда', 'Аксессуары'],
+      selectedTab: 'Все товары',
+      isModalOpen: false,
     };
   },
   computed: {
     allItems() {
       return [...this.clothes, ...this.accessories];
+    },
+    allItemsSorted() {
+      return this.allItems.slice().sort((item) => (item.isNew !== true ? 1 : -1));
+    },
+  },
+  methods: {
+    toggleTabClass() {
+      this.isTabActive = !this.isTabActive;
+    },
+    openModalWindow() {
+      this.isModalOpen = true;
+    },
+    closeModalWindow() {
+      this.isModalOpen = false;
     },
   },
 };
