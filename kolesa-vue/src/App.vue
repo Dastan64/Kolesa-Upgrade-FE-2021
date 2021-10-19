@@ -770,7 +770,6 @@ export default {
       ],
       selectedTab: 'Все товары',
       selectedLink: 'Kolesa Shop',
-      isLinkActive: true,
       isModalOpen: false,
     };
   },
