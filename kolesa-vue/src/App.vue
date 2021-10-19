@@ -783,9 +783,6 @@ export default {
     },
   },
   methods: {
-    toggleTabClass() {
-      this.isTabActive = !this.isTabActive;
-    },
     openModalWindow() {
       this.isModalOpen = true;
     },
