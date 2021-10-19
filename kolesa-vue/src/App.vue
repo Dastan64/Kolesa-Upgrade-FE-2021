@@ -52,28 +52,6 @@
                   >{{ link }}</a
                 >
               </li>
-              <!-- <li class="list__item">
-                <a class="list__link" href="#">Kolesa Team</a>
-              </li>
-              <li class="list__item">
-                <a class="list__link list__link--active" href="#">Kolesa Shop</a>
-              </li>
-              <li class="list__item">
-                <a class="list__link" href="#">Картина компании</a>
-              </li>
-              <li class="list__item">
-                <a class="list__link" href="#">Новости</a>
-              </li>
-              <li class="list__item">
-                <a class="list__link" href="#">Education</a>
-              </li>
-              <li class="list__item">
-                <a class="list__link" href="#">Guidelines</a>
-              </li>
-              <li class="list__item">
-                <a class="list__link" href="#">Библиотека</a>
-              </li>
-              <li class="list__item"><a class="list__link" href="#">FAQ</a></li> -->
             </ul>
           </nav>
         </div>
