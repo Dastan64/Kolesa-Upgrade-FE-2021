@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="app">
+  <div class="app">
     <header class="header">
       <div class="header__wrapper">
         <div class="header__container">
@@ -120,7 +120,7 @@
                   type="button"
                   title="Заказать"
                   :data-id="item.id"
-                  @click="openModalWindow"
+                  @click="toggleModalWindow"
                 >
                   Заказать
                 </button>
@@ -187,7 +187,7 @@
           </div>
         </div>
         <div class="modal" v-if="isModalOpen">
-          <div class="modal__overlay" @click="closeModalWindow"></div>
+          <div class="modal__overlay" @click="toggleModalWindow"></div>
           <div class="modal__window modal-window">
             <div class="modal-window__container">
               <div class="modal-window__images">
@@ -310,7 +310,7 @@
                 </div>
               </div>
 
-              <button class="modal-window__close-btn" @click="closeModalWindow">
+              <button class="modal-window__close-btn" @click="toggleModalWindow">
                 <picture>
                   <source srcset="./assets/images/close-icon.svg" type="image/webp" />
                   <img src="./assets/images/close-icon.svg" />
@@ -760,11 +760,8 @@ export default {
     },
   },
   methods: {
-    openModalWindow() {
-      this.isModalOpen = true;
-    },
-    closeModalWindow() {
-      this.isModalOpen = false;
+    toggleModalWindow() {
+      this.isModalOpen = !this.isModalOpen;
     },
   },
 };
