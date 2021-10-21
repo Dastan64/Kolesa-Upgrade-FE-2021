@@ -92,15 +92,15 @@
               v-for="(tab, index) in tabs"
               :key="index"
               class="tabs__nav-btn"
-              :class="{ 'tabs__nav-btn--active': selectedTab === tab }"
-              @click="selectedTab = tab"
+              :class="{ 'tabs__nav-btn--active': selectedTab === tab.slug }"
+              @click="setActiveTab(tab)"
             >
-              {{ tab }}
+              {{ tab.name }}
             </button>
           </div>
         </div>
-        <div class="main__grid grid" v-if="selectedTab === 'Все товары'">
-          <div class="grid__item card" v-for="item in allItemsSorted" :key="item.id">
+        <div class="main__grid grid">
+          <div class="grid__item card" v-for="item in filterCategories" :key="item.id">
             <div class="card__wrapper">
               <div class="card__image-container">
                 <img :src="require(`@/assets/images/${item.tName}.png`)" alt="" :id="item.id" />
@@ -121,64 +121,6 @@
                   title="Заказать"
                   :data-id="item.id"
                   @click="toggleModalWindow"
-                >
-                  Заказать
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="main__grid grid" v-if="selectedTab === 'Одежда'">
-          <div class="grid__item card" v-for="item in clothes" :key="item.id">
-            <div class="card__wrapper">
-              <div class="card__image-container">
-                <img :src="require(`@/assets/images/${item.tName}.png`)" alt="" :id="item.id" />
-                <div class="card__thumb" v-if="item.isNew">
-                  <p>New</p>
-                </div>
-              </div>
-              <div class="card__info">
-                <h3 class="card__scores" v-if="item.scores">
-                  {{ item.scores }}
-                </h3>
-                <h3 class="card__scores" v-else>Цена неизвестна</h3>
-                <p class="card__name">{{ item.type }} {{ item.name }}</p>
-                <p class="card__sizes" v-if="item.sizes">Размеры: {{ item.sizes.join(', ') }}</p>
-                <button
-                  class="card__btn"
-                  type="button"
-                  title="Заказать"
-                  :data-id="item.id"
-                  @click="openModalWindow"
-                >
-                  Заказать
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="main__grid grid" v-if="selectedTab === 'Аксессуары'">
-          <div class="grid__item card" v-for="item in accessories" :key="item.id">
-            <div class="card__wrapper">
-              <div class="card__image-container">
-                <img :src="require(`@/assets/images/${item.tName}.png`)" alt="" :id="item.id" />
-                <div class="card__thumb" v-if="item.isNew">
-                  <p>New</p>
-                </div>
-              </div>
-              <div class="card__info">
-                <h3 class="card__scores" v-if="item.scores">
-                  {{ item.scores }}
-                </h3>
-                <h3 class="card__scores" v-else>Цена неизвестна</h3>
-                <p class="card__name">{{ item.type }} {{ item.name }}</p>
-                <p class="card__sizes" v-if="item.sizes">Размеры: {{ item.sizes.join(', ') }}</p>
-                <button
-                  class="card__btn"
-                  type="button"
-                  title="Заказать"
-                  :data-id="item.id"
-                  @click="openModalWindow"
                 >
                   Заказать
                 </button>
@@ -310,7 +252,7 @@
                 </div>
               </div>
 
-              <button class="modal-window__close-btn" @click="toggleModalWindow">
+              <button class="modal-window__close-btn" @click="closeModalWindow">
                 <picture>
                   <source srcset="./assets/images/close-icon.svg" type="image/webp" />
                   <img src="./assets/images/close-icon.svg" />
@@ -734,7 +676,17 @@ export default {
           scores: '110 баллов',
         },
       ],
-      tabs: ['Все товары', 'Одежда', 'Аксессуары'],
+      tabs: [
+        {
+          name: 'Все товары',
+          slug: 'all',
+        },
+        { name: 'Одежда', slug: 'clothes' },
+        {
+          name: 'Аксессуары',
+          slug: 'accessories',
+        },
+      ],
       navLinks: [
         'Оргсхема',
         'Kolesa Team',
@@ -746,7 +698,7 @@ export default {
         'Библиотека',
         'FAQ',
       ],
-      selectedTab: 'Все товары',
+      selectedTab: 'all',
       selectedLink: 'Kolesa Shop',
       isModalOpen: false,
     };
@@ -758,10 +710,22 @@ export default {
     allItemsSorted() {
       return this.allItems.slice().sort((item) => (item.isNew !== true ? 1 : -1));
     },
+    filterCategories() {
+      if (this.selectedTab === 'all') {
+        return this.allItems;
+      }
+      if (this.selectedTab === 'clothes') {
+        return this.clothes;
+      }
+      return this.accessories;
+    },
   },
   methods: {
     toggleModalWindow() {
       this.isModalOpen = !this.isModalOpen;
+    },
+    setActiveTab(tab) {
+      this.selectedTab = tab.slug;
     },
   },
 };
