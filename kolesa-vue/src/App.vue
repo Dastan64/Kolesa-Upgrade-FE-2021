@@ -7,16 +7,30 @@
             <div class="header__logo-container">
               <a href="#">
                 <picture>
-                  <source srcset="./assets/images/kolesa-logo.svg" type="image/webp" />
-                  <img src="./assets/images/kolesa-logo.svg" alt="Логотип Kolesa" />
+                  <source
+                    srcset="./assets/images/kolesa-logo.svg"
+                    type="image/webp"
+                  />
+                  <img
+                    src="./assets/images/kolesa-logo.svg"
+                    alt="Логотип Kolesa"
+                  />
                 </picture>
               </a>
             </div>
             <div class="header__search search">
               <form class="search__form">
-                <input type="text" class="search__input" placeholder="Поиск" required />
+                <input
+                  type="text"
+                  class="search__input"
+                  placeholder="Поиск"
+                  required
+                />
                 <button type="submit" class="search__btn">
-                  <img src="./assets/images/search-icon.svg" alt="Иконка поиска" />
+                  <img
+                    src="./assets/images/search-icon.svg"
+                    alt="Иконка поиска"
+                  />
                 </button>
               </form>
             </div>
@@ -25,8 +39,14 @@
             <div class="header__profile-container profile">
               <div class="profile__image-container">
                 <picture>
-                  <source srcset="./assets/images/profile-avatar.webp" type="image/webp" />
-                  <img src="./assets/images/profile-avatar.png" alt="Аватарка профиля" />
+                  <source
+                    srcset="./assets/images/profile-avatar.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="./assets/images/profile-avatar.png"
+                    alt="Аватарка профиля"
+                  />
                 </picture>
               </div>
               <div class="profile__descr">
@@ -43,7 +63,11 @@
         <div class="aside__wrapper">
           <nav class="aside__nav">
             <ul class="aside__list list">
-              <li class="list__item" v-for="(link, index) in navLinks" :key="index">
+              <li
+                class="list__item"
+                v-for="(link, index) in navLinks"
+                :key="index"
+              >
                 <a
                   class="list__link"
                   :class="{ 'list__link--active': selectedLink === link }"
@@ -66,21 +90,30 @@
         <div class="main__buttons buttons">
           <button class="buttons__get-scores" type="button">
             <picture>
-              <source srcset="./assets/images/plus-icon.webp" type="image/webp" />
+              <source
+                srcset="./assets/images/plus-icon.webp"
+                type="image/webp"
+              />
               <img src="./assets/images/plus-icon.png" alt="" />
             </picture>
             Получить баллы
           </button>
           <button class="buttons__how-to" type="button">
             <picture>
-              <source srcset="./assets/images/question-icon.webp" type="image/webp" />
+              <source
+                srcset="./assets/images/question-icon.webp"
+                type="image/webp"
+              />
               <img src="./assets/images/question-icon.png" alt="" />
             </picture>
             Как получить баллы
           </button>
           <button class="buttons__gift" type="button">
             <picture>
-              <source srcset="./assets/images/gift-icon.webp" type="image/webp" />
+              <source
+                srcset="./assets/images/gift-icon.webp"
+                type="image/webp"
+              />
               <img src="./assets/images/gift-icon.png" alt="" />
             </picture>
             Подарить баллы
@@ -100,10 +133,18 @@
           </div>
         </div>
         <div class="main__grid grid">
-          <div class="grid__item card" v-for="item in filterCategories" :key="item.id">
+          <div
+            class="grid__item card"
+            v-for="item in filterCategories"
+            :key="item.id"
+          >
             <div class="card__wrapper">
               <div class="card__image-container">
-                <img :src="require(`@/assets/images/${item.tName}.png`)" alt="" :id="item.id" />
+                <img
+                  :src="require(`@/assets/images/${item.tName}.png`)"
+                  alt=""
+                  :id="item.id"
+                />
                 <div class="card__thumb" v-if="item.isNew">
                   <p>New</p>
                 </div>
@@ -114,7 +155,9 @@
                 </h3>
                 <h3 class="card__scores" v-else>Цена неизвестна</h3>
                 <p class="card__name">{{ item.type }} {{ item.name }}</p>
-                <p class="card__sizes" v-if="item.sizes">Размеры: {{ item.sizes.join(', ') }}</p>
+                <p class="card__sizes" v-if="item.sizes">
+                  Размеры: {{ item.sizes.join(', ') }}
+                </p>
                 <button
                   class="card__btn"
                   type="button"
@@ -135,7 +178,10 @@
               <div class="modal-window__images">
                 <div class="modal-window__main-image-container">
                   <picture>
-                    <source srcset="./assets/images/t-shirt.webp" type="image/webp" />
+                    <source
+                      srcset="./assets/images/t-shirt.webp"
+                      type="image/webp"
+                    />
                     <img
                       src="./assets/images/t-shirt.png"
                       alt="Изображение футболки"
@@ -147,13 +193,23 @@
                 <div class="modal-window__preview-images preview">
                   <div class="preview__image-container">
                     <picture>
-                      <source srcset="./assets/images/preview-1.webp" type="image/webp" />
-                      <img class="preview__image" src="./assets/images/preview-1.jpg" alt="" />
+                      <source
+                        srcset="./assets/images/preview-1.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        class="preview__image"
+                        src="./assets/images/preview-1.jpg"
+                        alt=""
+                      />
                     </picture>
                   </div>
                   <div class="preview__image-container">
                     <picture>
-                      <source srcset="./assets/images/preview-2.webp" type="image/webp" />
+                      <source
+                        srcset="./assets/images/preview-2.webp"
+                        type="image/webp"
+                      />
                       <img
                         class="preview__image preview__image_active"
                         src="./assets/images/preview-2.jpg"
@@ -163,14 +219,23 @@
                   </div>
                   <div class="preview__image-container">
                     <picture>
-                      <source srcset="./assets/images/preview-3.webp" type="image/webp" />
-                      <img class="preview__image" src="./assets/images/preview-3.jpg" alt="" />
+                      <source
+                        srcset="./assets/images/preview-3.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        class="preview__image"
+                        src="./assets/images/preview-3.jpg"
+                        alt=""
+                      />
                     </picture>
                   </div>
                 </div>
               </div>
               <div class="modal-window__info info">
-                <h3 class="info__heading">Футболка "Эволюционируй или сдохни"</h3>
+                <h3 class="info__heading">
+                  Футболка "Эволюционируй или сдохни"
+                </h3>
                 <p class="info__scores">100 баллов</p>
                 <button class="info__btn" type="button">Заказать</button>
 
@@ -181,8 +246,14 @@
                   </div>
                   <div class="info__balance-icon-container">
                     <picture>
-                      <source srcset="./assets/images/bags.webp" type="image/webp" />
-                      <img src="./assets/images/bags.png" alt="Картинка сумок" />
+                      <source
+                        srcset="./assets/images/bags.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="./assets/images/bags.png"
+                        alt="Картинка сумок"
+                      />
                     </picture>
                   </div>
                 </div>
@@ -240,7 +311,8 @@
                     <p class="info__details-heading">Детали:</p>
                   </strong>
                   <p class="info__details-text">
-                    Брендированная толстовка от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%
+                    Брендированная толстовка от Qazaq Republic. Материал: Хлопок
+                    80%, Вискоза 20%
                   </p>
                 </div>
 
@@ -248,13 +320,18 @@
                   <strong>
                     <p class="info__how-to-heading">Как выбрать размер?</p>
                   </strong>
-                  <p class="info__how-to-answer">Написать дяде Рику для уточнения.</p>
+                  <p class="info__how-to-answer">
+                    Написать дяде Рику для уточнения.
+                  </p>
                 </div>
               </div>
 
               <button class="modal-window__close-btn" @click="closeModalWindow">
                 <picture>
-                  <source srcset="./assets/images/close-icon.svg" type="image/webp" />
+                  <source
+                    srcset="./assets/images/close-icon.svg"
+                    type="image/webp"
+                  />
                   <img src="./assets/images/close-icon.svg" />
                 </picture>
               </button>
@@ -266,7 +343,9 @@
                   <p class="bottom-balance__number">450 баллов</p>
                 </strong>
               </div>
-              <button class="bottom-balance__btn" type="button">Заказать</button>
+              <button class="bottom-balance__btn" type="button">
+                Заказать
+              </button>
             </div>
           </div>
         </div>
@@ -279,10 +358,16 @@
             <p>&copy; Kolesa Group</p>
             <div class="footer__social-media">
               <a class="footer__social-media-link" href="#">
-                <img src="./assets/images/instagram-icon.svg" alt="Иконка Инстаграма" />
+                <img
+                  src="./assets/images/instagram-icon.svg"
+                  alt="Иконка Инстаграма"
+                />
               </a>
               <a class="footer__social-media-link" href="#">
-                <img src="./assets/images/youtube-icon.svg" alt="Иконка YouTube" />
+                <img
+                  src="./assets/images/youtube-icon.svg"
+                  alt="Иконка YouTube"
+                />
               </a>
               <a class="footer__social-media-link" href="#">
                 <img src="./assets/images/vk-icon.svg" alt="Иконка ВКонтакте" />
@@ -292,7 +377,9 @@
           <div class="footer__action">
             <div class="footer__action-text-container">
               <p class="footer__action-text">Есть идеи что улучшить?</p>
-              <p class="footer__action-text">Не знаешь, с кем решить проблему?</p>
+              <p class="footer__action-text">
+                Не знаешь, с кем решить проблему?
+              </p>
             </div>
             <button class="footer__btn" type="button">Написать</button>
           </div>
@@ -409,7 +496,8 @@ export default {
           isNew: false,
           type: 'Кепка',
           name: '',
-          description: 'Кепка от Kolesa Group, полностью изготовленная из хлопка',
+          description:
+            'Кепка от Kolesa Group, полностью изготовленная из хлопка',
 
           scores: '85 баллов',
           sizes: ['L', 'XL'],
@@ -708,7 +796,9 @@ export default {
       return [...this.clothes, ...this.accessories];
     },
     allItemsSorted() {
-      return this.allItems.slice().sort((item) => (item.isNew !== true ? 1 : -1));
+      return this.allItems
+        .slice()
+        .sort((item) => (item.isNew !== true ? 1 : -1));
     },
     filterCategories() {
       if (this.selectedTab === 'all') {
