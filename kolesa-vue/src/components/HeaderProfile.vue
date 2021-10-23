@@ -14,8 +14,8 @@
         </picture>
       </div>
       <div class="profile__descr">
-        <h3 class="profile__name">Мортиджан</h3>
-        <p class="profile__scores">300 баллов</p>
+        <h3 class="profile__name">{{ userInfo.name }}</h3>
+        <p class="profile__scores">{{ userInfo.score }} баллов</p>
       </div>
     </div>
   </a>
@@ -24,5 +24,53 @@
 <script>
 export default {
   name: 'HeaderProfile',
+  data() {
+    return {
+      userInfo: {},
+    };
+  },
+  methods: {
+    fetchUserInfo() {
+      fetch('https://api.json-generator.com/templates/7ZW3y5GAuIge/data', {
+        headers: {
+          Authorization: 'Bearer rhhrmjvdvcv0ka4e6ouao9a1gj42fbjim5bcu60f',
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            console.log(response.status);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+          this.userInfo = data;
+          this.$emit('updateUserInfo', this.userInfo);
+        })
+        .catch((err) => {
+          console.log('Fetch Error', err);
+        });
+    },
+  },
+  created() {
+    this.fetchUserInfo();
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+@import '../styles/variables';
+@import '../styles/profile';
+.header {
+  &__profile-link {
+    color: $blackPrimary;
+
+    &:hover {
+      & > .header__profile-container {
+        background-color: #e7e7e7;
+        border-radius: 8px;
+      }
+    }
+  }
+}
+</style>

@@ -39,3 +39,8 @@ export default {
   name: 'Footer',
 };
 </script>
+
+<style lang="scss" scoped>
+@import '../styles/variables';
+@import '../styles/footer';
+</style>

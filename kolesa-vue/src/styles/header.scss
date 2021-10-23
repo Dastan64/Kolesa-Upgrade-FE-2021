@@ -26,29 +26,4 @@
         align-items: center;
         gap: 66px;
     }
-
-    &__search {
-        position: relative;
-    }
-
-    &__profile-link {
-        color: $blackPrimary;
-
-        &:hover {
-            & > .header__profile-container {
-                background-color: #e7e7e7;
-                border-radius: 8px;
-            }
-        }
-    }
-
-    &__profile-container {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        padding: 10px;
-    }
 }

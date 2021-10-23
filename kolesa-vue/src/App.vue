@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Header></Header>
+    <Header @updateUserInfo="updateUserInfo"></Header>
     <div class="app__container container">
       <Navbar :nav-links="navLinks" :selected-link="selectedLink"></Navbar>
       <main class="main">
@@ -10,51 +10,12 @@
             <img src="./assets/images/banner.png" alt="" />
           </picture>
         </div>
-        <div class="main__buttons buttons">
-          <button class="buttons__get-scores" type="button">
-            <picture>
-              <source
-                srcset="./assets/images/plus-icon.webp"
-                type="image/webp"
-              />
-              <img src="./assets/images/plus-icon.png" alt="" />
-            </picture>
-            Получить баллы
-          </button>
-          <button class="buttons__how-to" type="button">
-            <picture>
-              <source
-                srcset="./assets/images/question-icon.webp"
-                type="image/webp"
-              />
-              <img src="./assets/images/question-icon.png" alt="" />
-            </picture>
-            Как получить баллы
-          </button>
-          <button class="buttons__gift" type="button">
-            <picture>
-              <source
-                srcset="./assets/images/gift-icon.webp"
-                type="image/webp"
-              />
-              <img src="./assets/images/gift-icon.png" alt="" />
-            </picture>
-            Подарить баллы
-          </button>
-        </div>
-        <div class="main__tabs tabs">
-          <div class="tabs__nav">
-            <button
-              v-for="(tab, index) in tabs"
-              :key="index"
-              class="tabs__nav-btn"
-              :class="{ 'tabs__nav-btn--active': selectedTab === tab.slug }"
-              @click="setActiveTab(tab)"
-            >
-              {{ tab.name }}
-            </button>
-          </div>
-        </div>
+        <Buttons></Buttons>
+        <Tabs
+          :tabs="tabs"
+          :selected-tab="selectedTab"
+          @setActiveTab="changeActiveTab"
+        ></Tabs>
         <div class="main__grid grid">
           <div
             class="grid__item card"
@@ -63,21 +24,17 @@
           >
             <div class="card__wrapper">
               <div class="card__image-container">
-                <img
-                  :src="require(`@/assets/images/${item.tName}.png`)"
-                  alt=""
-                  :id="item.id"
-                />
+                <img :src="item.mainImage" alt="" :id="item.id" />
                 <div class="card__thumb" v-if="item.isNew">
                   <p>New</p>
                 </div>
               </div>
               <div class="card__info">
-                <h3 class="card__scores" v-if="item.scores">
-                  {{ item.scores }}
+                <h3 class="card__scores" v-if="item.price">
+                  {{ item.price }} баллов
                 </h3>
                 <h3 class="card__scores" v-else>Цена неизвестна</h3>
-                <p class="card__name">{{ item.type }} {{ item.name }}</p>
+                <p class="card__name">{{ item.title }}</p>
                 <p class="card__sizes" v-if="item.sizes">
                   Размеры: {{ item.sizes.join(', ') }}
                 </p>
@@ -284,6 +241,8 @@
 <script>
 import Header from './components/Header.vue';
 import Navbar from './components/Navbar.vue';
+import Buttons from './components/Buttons.vue';
+import Tabs from './components/Tabs.vue';
 import Footer from './components/Footer.vue';
 
 export default {
@@ -291,6 +250,8 @@ export default {
   components: {
     Header,
     Navbar,
+    Buttons,
+    Tabs,
     Footer,
   },
   data() {
@@ -690,6 +651,7 @@ export default {
       selectedTab: 'all',
       selectedLink: 'Kolesa Shop',
       isModalOpen: false,
+      infoUser: {},
     };
   },
   computed: {
@@ -703,7 +665,7 @@ export default {
     },
     filterCategories() {
       if (this.selectedTab === 'all') {
-        return this.allItems;
+        return this.allItemsSorted;
       }
       if (this.selectedTab === 'clothes') {
         return this.clothes;
@@ -715,9 +677,56 @@ export default {
     toggleModalWindow() {
       this.isModalOpen = !this.isModalOpen;
     },
-    setActiveTab(tab) {
+    changeActiveTab(tab) {
       this.selectedTab = tab.slug;
     },
+    fetchClothes() {
+      fetch('https://api.json-generator.com/templates/-_RLsEGjof6i/data', {
+        headers: {
+          Authorization: 'Bearer rhhrmjvdvcv0ka4e6ouao9a1gj42fbjim5bcu60f',
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            console.log(response.status);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+          this.clothes = data;
+        })
+        .catch((err) => {
+          console.log('Fetch Error', err);
+        });
+    },
+    fetchAccessories() {
+      fetch('https://api.json-generator.com/templates/q3OPxRyEcPvP/data', {
+        headers: {
+          Authorization: 'Bearer rhhrmjvdvcv0ka4e6ouao9a1gj42fbjim5bcu60f',
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            console.log(response.status);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+          this.accessories = data;
+        })
+        .catch((err) => {
+          console.log('Fetch Error', err);
+        });
+    },
+    updateUserInfo(userInfo) {
+      this.infoUser = userInfo;
+    },
+  },
+  created() {
+    this.fetchClothes();
+    this.fetchAccessories();
   },
 };
 </script>
@@ -725,17 +734,11 @@ export default {
 <style lang="scss">
 @import './styles/variables';
 @import './styles/container';
-@import './styles/header';
-@import './styles/search';
-@import './styles/profile';
-@import './styles/aside';
 @import './styles/main';
-@import './styles/buttons';
 @import './styles/tabs';
 @import './styles/grid';
 @import './styles/card';
 @import './styles/modal-window';
-@import './styles/footer';
 
 * {
   margin: 0;

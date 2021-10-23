@@ -14,3 +14,13 @@ export default {
   name: 'HeaderSearch',
 };
 </script>
+
+<style lang="scss" scoped>
+@import '../styles/variables';
+@import '../styles/search';
+.header {
+  &__search {
+    position: relative;
+  }
+}
+</style>

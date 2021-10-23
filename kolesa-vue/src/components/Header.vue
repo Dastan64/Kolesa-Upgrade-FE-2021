@@ -19,7 +19,7 @@
           </div>
           <HeaderSearch></HeaderSearch>
         </div>
-        <HeaderProfile></HeaderProfile>
+        <HeaderProfile @updateUserInfo="updateUserInfo"></HeaderProfile>
       </div>
     </div>
   </header>
@@ -35,8 +35,15 @@ export default {
     HeaderSearch,
     HeaderProfile,
   },
+  methods: {
+    updateUserInfo(userInfo) {
+      this.$emit('updateUserInfo', userInfo);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+@import '../styles/variables';
+@import '../styles/header';
 </style>
