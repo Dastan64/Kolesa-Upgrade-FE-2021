@@ -17,39 +17,12 @@
           @setActiveTab="changeActiveTab"
         ></Tabs>
         <div class="main__grid grid">
-          <div
-            class="grid__item card"
+          <Card
             v-for="item in filterCategories"
             :key="item.id"
-          >
-            <div class="card__wrapper">
-              <div class="card__image-container">
-                <img :src="item.mainImage" alt="" :id="item.id" />
-                <div class="card__thumb" v-if="item.isNew">
-                  <p>New</p>
-                </div>
-              </div>
-              <div class="card__info">
-                <h3 class="card__scores" v-if="item.price">
-                  {{ item.price }} баллов
-                </h3>
-                <h3 class="card__scores" v-else>Цена неизвестна</h3>
-                <p class="card__name">{{ item.title }}</p>
-                <p class="card__sizes" v-if="item.sizes">
-                  Размеры: {{ item.sizes.join(', ') }}
-                </p>
-                <button
-                  class="card__btn"
-                  type="button"
-                  title="Заказать"
-                  :data-id="item.id"
-                  @click="toggleModalWindow"
-                >
-                  Заказать
-                </button>
-              </div>
-            </div>
-          </div>
+            :item="item"
+            @toggleModalWindow="toggleModalWindow"
+          ></Card>
         </div>
         <div class="modal" v-if="isModalOpen">
           <div class="modal__overlay" @click="toggleModalWindow"></div>
@@ -243,6 +216,7 @@ import Header from './components/Header.vue';
 import Navbar from './components/Navbar.vue';
 import Buttons from './components/Buttons.vue';
 import Tabs from './components/Tabs.vue';
+import Card from './components/Card.vue';
 import Footer from './components/Footer.vue';
 
 export default {
@@ -252,6 +226,7 @@ export default {
     Navbar,
     Buttons,
     Tabs,
+    Card,
     Footer,
   },
   data() {
