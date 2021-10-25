@@ -2,7 +2,11 @@
   <div class="app">
     <Header @updateUserInfo="updateUserInfo"></Header>
     <div class="app__container container">
-      <Navbar :nav-links="navLinks" :selected-link="selectedLink"></Navbar>
+      <Navbar
+        :nav-links="navLinks"
+        :selected-link="selectedLink"
+        @setActiveLink="changeActiveLink"
+      ></Navbar>
       <main class="main">
         <div class="main__banner-container">
           <picture>
@@ -22,189 +26,16 @@
             :key="item.id"
             :item="item"
             @toggleModalWindow="toggleModalWindow"
+            @openCard="openCard"
           ></Card>
         </div>
-        <div class="modal" v-if="isModalOpen">
-          <div class="modal__overlay" @click="toggleModalWindow"></div>
-          <div class="modal__window modal-window">
-            <div class="modal-window__container">
-              <div class="modal-window__images">
-                <div class="modal-window__main-image-container">
-                  <picture>
-                    <source
-                      srcset="./assets/images/t-shirt.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="./assets/images/t-shirt.png"
-                      alt="Изображение футболки"
-                      width="330px"
-                      height="330px"
-                    />
-                  </picture>
-                </div>
-                <div class="modal-window__preview-images preview">
-                  <div class="preview__image-container">
-                    <picture>
-                      <source
-                        srcset="./assets/images/preview-1.webp"
-                        type="image/webp"
-                      />
-                      <img
-                        class="preview__image"
-                        src="./assets/images/preview-1.jpg"
-                        alt=""
-                      />
-                    </picture>
-                  </div>
-                  <div class="preview__image-container">
-                    <picture>
-                      <source
-                        srcset="./assets/images/preview-2.webp"
-                        type="image/webp"
-                      />
-                      <img
-                        class="preview__image preview__image_active"
-                        src="./assets/images/preview-2.jpg"
-                        alt=""
-                      />
-                    </picture>
-                  </div>
-                  <div class="preview__image-container">
-                    <picture>
-                      <source
-                        srcset="./assets/images/preview-3.webp"
-                        type="image/webp"
-                      />
-                      <img
-                        class="preview__image"
-                        src="./assets/images/preview-3.jpg"
-                        alt=""
-                      />
-                    </picture>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-window__info info">
-                <h3 class="info__heading">
-                  Футболка "Эволюционируй или сдохни"
-                </h3>
-                <p class="info__scores">100 баллов</p>
-                <button class="info__btn" type="button">Заказать</button>
-
-                <div class="info__balance">
-                  <div class="info__balance-text">
-                    <p class="info__balance-heading">Твой баланс</p>
-                    <p class="info__balance-number">3 945 баллов</p>
-                  </div>
-                  <div class="info__balance-icon-container">
-                    <picture>
-                      <source
-                        srcset="./assets/images/bags.webp"
-                        type="image/webp"
-                      />
-                      <img
-                        src="./assets/images/bags.png"
-                        alt="Картинка сумок"
-                      />
-                    </picture>
-                  </div>
-                </div>
-
-                <div class="info__colors">
-                  <p class="info__colors-heading">Цвета:</p>
-                  <div class="info__colors-options colors">
-                    <div class="colors__option">
-                      <label class="colors__radio-label">
-                        <input class="colors__radio" type="radio" /><span
-                          style="background-color: #00458a"
-                          class="box"
-                        ></span
-                        >Синий</label
-                      >
-                    </div>
-                    <div class="colors__option">
-                      <label class="colors__radio-label">
-                        <input class="colors__radio" type="radio" /><span
-                          style="background-color: #efe8d8"
-                          class="box"
-                        ></span
-                        >Бежевый</label
-                      >
-                    </div>
-                    <div class="colors__option">
-                      <label class="colors__radio-label">
-                        <input class="colors__radio" type="radio" /><span
-                          style="background-color: #d4d4da"
-                          class="box"
-                        ></span
-                        >Серый</label
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <div class="info__sizes">
-                  <p class="info__size-heading">Размер:</p>
-                  <div class="info__size-options sizes">
-                    <div class="sizes__option">
-                      <p>S</p>
-                    </div>
-                    <div class="sizes__option">
-                      <p>M</p>
-                    </div>
-                    <div class="sizes__option">
-                      <p>L</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="info__details">
-                  <strong>
-                    <p class="info__details-heading">Детали:</p>
-                  </strong>
-                  <p class="info__details-text">
-                    Брендированная толстовка от Qazaq Republic. Материал: Хлопок
-                    80%, Вискоза 20%
-                  </p>
-                </div>
-
-                <div class="info__how-to">
-                  <strong>
-                    <p class="info__how-to-heading">Как выбрать размер?</p>
-                  </strong>
-                  <p class="info__how-to-answer">
-                    Написать дяде Рику для уточнения.
-                  </p>
-                </div>
-              </div>
-
-              <button
-                class="modal-window__close-btn"
-                @click="toggleModalWindow"
-              >
-                <picture>
-                  <source
-                    srcset="./assets/images/close-icon.svg"
-                    type="image/webp"
-                  />
-                  <img src="./assets/images/close-icon.svg" />
-                </picture>
-              </button>
-            </div>
-            <div class="modal-window__bottom-balance bottom-balance">
-              <div class="bottom-balance__container">
-                <p class="bottom-balance__caption">Твои баллы:</p>
-                <strong>
-                  <p class="bottom-balance__number">450 баллов</p>
-                </strong>
-              </div>
-              <button class="bottom-balance__btn" type="button">
-                Заказать
-              </button>
-            </div>
-          </div>
-        </div>
+        <ModalWindow
+          :is-open="isModalOpen"
+          :info-user="infoUser"
+          @toggleModalWindow="toggleModalWindow"
+          :modal-data="modalData"
+          @removeScores="updateUserBalance"
+        ></ModalWindow>
       </main>
     </div>
     <Footer></Footer>
@@ -217,6 +48,7 @@ import Navbar from './components/Navbar.vue';
 import Buttons from './components/Buttons.vue';
 import Tabs from './components/Tabs.vue';
 import Card from './components/Card.vue';
+import ModalWindow from './components/ModalWindow.vue';
 import Footer from './components/Footer.vue';
 
 export default {
@@ -227,6 +59,7 @@ export default {
     Buttons,
     Tabs,
     Card,
+    ModalWindow,
     Footer,
   },
   data() {
@@ -613,20 +446,48 @@ export default {
         },
       ],
       navLinks: [
-        'Оргсхема',
-        'Kolesa Team',
-        'Kolesa Shop',
-        'Картина компании',
-        'Новости',
-        'Education',
-        'Guidelines',
-        'Библиотека',
-        'FAQ',
+        {
+          name: 'Оргсхема',
+          slug: 'orgscheme',
+        },
+        {
+          name: 'Kolesa Team',
+          slug: 'team',
+        },
+        {
+          name: 'Kolesa Shop',
+          slug: 'shop',
+        },
+        {
+          name: 'Картина компании',
+          slug: 'overview',
+        },
+        {
+          name: 'Новости',
+          slug: 'news',
+        },
+        {
+          name: 'Education',
+          slug: 'education',
+        },
+        {
+          name: 'Guidelines',
+          slug: 'guidelines',
+        },
+        {
+          name: 'Библиотека',
+          slug: 'library',
+        },
+        {
+          name: 'FAQ',
+          slug: 'faq',
+        },
       ],
       selectedTab: 'all',
-      selectedLink: 'Kolesa Shop',
+      selectedLink: 'shop',
       isModalOpen: false,
       infoUser: {},
+      modalData: {},
     };
   },
   computed: {
@@ -654,6 +515,9 @@ export default {
     },
     changeActiveTab(tab) {
       this.selectedTab = tab.slug;
+    },
+    changeActiveLink(link) {
+      this.selectedLink = link.slug;
     },
     fetchClothes() {
       fetch('https://api.json-generator.com/templates/-_RLsEGjof6i/data', {
@@ -698,6 +562,13 @@ export default {
     updateUserInfo(userInfo) {
       this.infoUser = userInfo;
     },
+    updateUserBalance(price) {
+      this.infoUser.score -= price;
+    },
+    openCard(item) {
+      this.toggleModalWindow();
+      this.modalData = item;
+    },
   },
   created() {
     this.fetchClothes();
@@ -710,9 +581,6 @@ export default {
 @import './styles/variables';
 @import './styles/container';
 @import './styles/main';
-@import './styles/tabs';
-@import './styles/grid';
-@import './styles/card';
 @import './styles/modal-window';
 
 * {

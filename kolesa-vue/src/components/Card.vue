@@ -11,15 +11,18 @@
         <h3 class="card__scores" v-if="item.price">{{ item.price }} баллов</h3>
         <h3 class="card__scores" v-else>Цена неизвестна</h3>
         <p class="card__name">{{ item.title }}</p>
-        <p class="card__sizes" v-if="item.sizes">
+        <p class="card__sizes" v-if="item.sizes && item.sizes.length">
           Размеры: {{ item.sizes.join(', ') }}
+        </p>
+        <p class="card__sizes" v-if="item.volumes && item.volumes.length">
+          Объёмы: {{ item.volumes.join(', ') }}
         </p>
         <button
           class="card__btn"
           type="button"
           title="Заказать"
           :data-id="item.id"
-          @click="toggleModalWindow"
+          @click="openCard(item)"
         >
           Заказать
         </button>
@@ -35,12 +38,19 @@ export default {
     item: Object,
   },
   methods: {
-    toggleModalWindow() {
-      this.$emit('toggleModalWindow');
+    openCard(item) {
+      console.log(item);
+      this.$emit('openCard', this.item);
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import '../styles/variables';
+@import '../styles/card';
+
+.grid__item {
+  position: relative;
+}
 </style>

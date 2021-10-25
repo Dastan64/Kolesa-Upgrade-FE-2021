@@ -34,6 +34,7 @@
     background-color: white;
 
     &__images {
+        min-width: 330px;
         max-width: 330px;
         padding-right: 24px;
     }
@@ -64,6 +65,7 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        margin-top: 16px;
     }
 
     &__bottom-balance {
@@ -105,6 +107,12 @@
         }
     }
 
+    &__warning {
+        color: red;
+        margin-top: 10px;
+        font-size: 0.75rem;
+    }
+
     &__balance {
         position: absolute;
         right: 20px;
@@ -134,6 +142,10 @@
         margin-top: 24px;
     }
 
+    &__volumes {
+        @extend .info__sizes;
+    }
+
     &__details {
         margin-top: 24px;
     }
@@ -157,6 +169,8 @@
 
 .preview__image {
     cursor: pointer;
+    width: 50px;
+    height: 50px;
 
     &-container:not(:first-of-type) {
         margin-left: 8px;
@@ -246,6 +260,13 @@
             background-color: $activeBgColor;
             color: $blackPrimary;
         }
+    }
+}
+
+.volumes {
+    @extend .sizes;
+    &__option {
+        @extend .sizes__option;
     }
 }
 

@@ -6,10 +6,10 @@
           <li class="list__item" v-for="(link, index) in navLinks" :key="index">
             <a
               class="list__link"
-              :class="{ 'list__link--active': selectedLink === link }"
+              :class="{ 'list__link--active': selectedLink === link.slug }"
               href="#"
-              @click="selectedLink = link"
-              >{{ link }}</a
+              @click="setActiveLink(link)"
+              >{{ link.name }}</a
             >
           </li>
         </ul>
@@ -24,6 +24,11 @@ export default {
   props: {
     navLinks: Array,
     selectedLink: String,
+  },
+  methods: {
+    setActiveLink(link) {
+      this.$emit('setActiveLink', link);
+    },
   },
 };
 </script>

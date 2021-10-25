@@ -5,7 +5,6 @@
         v-for="(tab, index) in tabs"
         class="tabs__nav-btn"
         :class="{ 'tabs__nav-btn--active': selectedTab === tab.slug }"
-        :tab="tab"
         :key="index"
         @click="setActiveTab(tab)"
       >
@@ -32,4 +31,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../styles/variables';
+@import '../styles/tabs';
 </style>

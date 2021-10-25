@@ -2,25 +2,22 @@
   <div class="main__buttons buttons">
     <button class="buttons__get-scores" type="button">
       <picture>
-        <source srcset="../assets/images/plus-icon.webp" type="image/webp" />
-        <img src="../assets/images/plus-icon.png" alt="" />
+        <source srcset="../assets/images/get-scores.webp" type="image/webp" />
+        <img src="../assets/images/get-scores.png" alt="" />
       </picture>
       Получить баллы
     </button>
     <button class="buttons__how-to" type="button">
       <picture>
-        <source
-          srcset="../assets/images/question-icon.webp"
-          type="image/webp"
-        />
-        <img src="../assets/images/question-icon.png" alt="" />
+        <source srcset="../assets/images/how-to.webp" type="image/webp" />
+        <img src="../assets/images/how-to.png" alt="" />
       </picture>
       Как получить баллы
     </button>
     <button class="buttons__gift" type="button">
       <picture>
-        <source srcset="../assets/images/gift-icon.webp" type="image/webp" />
-        <img src="../assets/images/gift-icon.png" alt="" />
+        <source srcset="../assets/images/gift.webp" type="image/webp" />
+        <img src="../assets/images/gift.png" alt="" />
       </picture>
       Подарить баллы
     </button>
