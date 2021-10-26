@@ -19,7 +19,10 @@
           </div>
           <HeaderSearch></HeaderSearch>
         </div>
-        <HeaderProfile @updateUserInfo="updateUserInfo"></HeaderProfile>
+        <HeaderProfile
+          @updateUserInfo="updateUserInfo"
+          :infoUser="infoUser"
+        ></HeaderProfile>
       </div>
     </div>
   </header>
@@ -34,6 +37,9 @@ export default {
   components: {
     HeaderSearch,
     HeaderProfile,
+  },
+  props: {
+    infoUser: Object,
   },
   methods: {
     updateUserInfo(userInfo) {

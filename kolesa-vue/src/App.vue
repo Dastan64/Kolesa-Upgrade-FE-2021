@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Header @updateUserInfo="updateUserInfo"></Header>
+    <Header @updateUserInfo="updateUserInfo" :infoUser="infoUser"></Header>
     <div class="app__container container">
       <Navbar
         :nav-links="navLinks"

@@ -5,7 +5,7 @@
         type="text"
         class="search__input"
         placeholder="Поиск"
-        v-model="query"
+        v-model.trim="query"
         required
       />
       <button type="submit" class="search__btn">
@@ -23,6 +23,7 @@ export default {
       query: '',
     };
   },
+  methods: {},
 };
 </script>
 

@@ -29,6 +29,9 @@ export default {
       userInfo: {},
     };
   },
+  props: {
+    infoUser: Object,
+  },
   methods: {
     fetchUserInfo() {
       fetch('https://api.json-generator.com/templates/7ZW3y5GAuIge/data', {
