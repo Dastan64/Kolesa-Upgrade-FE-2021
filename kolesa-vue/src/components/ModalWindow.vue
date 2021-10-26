@@ -175,6 +175,7 @@ export default {
         return;
       }
       this.$emit('removeScores', this.modalData.price);
+      this.$emit('toggleModalWindow');
     },
   },
 };
