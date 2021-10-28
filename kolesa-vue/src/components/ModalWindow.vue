@@ -147,7 +147,6 @@ export default {
         .join('');
     },
     getPreviewImages(images) {
-      console.log(images);
       return images
         .map(
           (image) => `                         <div

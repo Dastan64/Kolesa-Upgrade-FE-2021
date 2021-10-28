@@ -46,7 +46,6 @@ export default {
           return response.json();
         })
         .then((data) => {
-          console.log(data);
           this.userInfo = data;
           this.$emit('updateUserInfo', this.userInfo);
         })

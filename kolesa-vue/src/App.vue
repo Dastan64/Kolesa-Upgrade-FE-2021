@@ -532,7 +532,6 @@ export default {
           return response.json();
         })
         .then((data) => {
-          console.log(data);
           this.clothes = data;
         })
         .catch((err) => {
@@ -552,7 +551,6 @@ export default {
           return response.json();
         })
         .then((data) => {
-          console.log(data);
           this.accessories = data;
         })
         .catch((err) => {

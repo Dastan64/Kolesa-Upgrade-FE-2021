@@ -38,8 +38,7 @@ export default {
     item: Object,
   },
   methods: {
-    openCard(item) {
-      console.log(item);
+    openCard() {
       this.$emit('openCard', this.item);
     },
   },
