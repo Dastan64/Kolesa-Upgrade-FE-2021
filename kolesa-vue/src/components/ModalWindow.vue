@@ -14,9 +14,14 @@
           </div>
           <div
             class="modal-window__preview-images preview"
-            v-if="modalData.images"
-            v-html="getPreviewImages(modalData.images)"
-          ></div>
+            v-if="modalData.images && modalData.images.length"
+          >
+            <ModalImages
+              v-for="(imageAddress, index) in modalData.images"
+              :key="index"
+              :imageAddress="imageAddress"
+            ></ModalImages>
+          </div>
         </div>
         <div class="modal-window__info info">
           <h3 class="info__heading">{{ modalData.title }}</h3>
@@ -40,28 +45,46 @@
             </div>
           </div>
 
-          <div class="info__colors" v-if="modalData.colors">
+          <div
+            class="info__colors"
+            v-if="modalData.colors && modalData.colors.length"
+          >
             <p class="info__colors-heading">Цвета:</p>
-            <div
-              class="info__colors-options colors"
-              v-html="getFormattedColors(modalData.colors)"
-            ></div>
+            <div class="info__colors-options colors">
+              <ModalColors
+                v-for="(color, index) in modalData.colors"
+                :key="index"
+                :color="color"
+              ></ModalColors>
+            </div>
           </div>
 
-          <div class="info__sizes" v-if="modalData.sizes">
+          <div
+            class="info__sizes"
+            v-if="modalData.sizes && modalData.sizes.length"
+          >
             <p class="info__size-heading">Размеры:</p>
-            <div
-              class="info__size-options sizes"
-              v-html="getFormattedSizes(modalData.sizes)"
-            ></div>
+            <div class="info__size-options sizes">
+              <ModalSizes
+                v-for="(size, index) in modalData.sizes"
+                :key="index"
+                :size="size"
+              ></ModalSizes>
+            </div>
           </div>
 
-          <div class="info__volumes" v-if="modalData.volumes">
-            <p class="info__size-heading">Объёмы:</p>
-            <div
-              class="info__size-options sizes"
-              v-html="getFormattedVolumes(modalData.volumes)"
-            ></div>
+          <div
+            class="info__volumes"
+            v-if="modalData.volumes && modalData.volumes.length"
+          >
+            <p class="info__volume-heading">Объёмы:</p>
+            <div class="info__volume-options volumes">
+              <ModalVolumes
+                v-for="(volume, index) in modalData.volumes"
+                :key="index"
+                :volume="volume"
+              ></ModalVolumes>
+            </div>
           </div>
 
           <div class="info__details">
@@ -108,6 +131,11 @@
 </template>
 
 <script>
+import ModalImages from './ModalImages.vue';
+import ModalColors from './ModalColors.vue';
+import ModalSizes from './ModalSizes.vue';
+import ModalVolumes from './ModalVolumes.vue';
+
 export default {
   name: 'ModalWindow',
   props: {
@@ -120,54 +148,13 @@ export default {
       isWarningShown: false,
     };
   },
+  components: {
+    ModalImages,
+    ModalColors,
+    ModalSizes,
+    ModalVolumes,
+  },
   methods: {
-    getFormattedColors(colors) {
-      return colors
-        .map(
-          (color) => `<div class="colors__option">
-                <label class="colors__radio-label">
-                  <input class="colors__radio" type="radio" /><span
-                    style="background-color: ${color.color}"
-                    class="box"
-                  ></span
-                  >${color.label}</label
-                >
-              </div>`,
-        )
-        .join('');
-    },
-    getFormattedSizes(sizes) {
-      return sizes
-        .map(
-          (size) => `
-        <div class="sizes__option">
-                <p>${size}</p>
-            </div>`,
-        )
-        .join('');
-    },
-    getPreviewImages(images) {
-      return images
-        .map(
-          (image) => `                         <div
-              class="preview__image-container"><img
-                  class="preview__image"
-                  src=${image}
-                  alt=""
-                /></div>`,
-        )
-        .join('');
-    },
-    getFormattedVolumes(volumes) {
-      return volumes
-        .map(
-          (volume) => `
-        <div class="volumes__option">
-                <p>${volume}</p>
-            </div>`,
-        )
-        .join('');
-    },
     removeScores() {
       if (this.infoUser.score < this.modalData.price) {
         this.isWarningShown = true;
