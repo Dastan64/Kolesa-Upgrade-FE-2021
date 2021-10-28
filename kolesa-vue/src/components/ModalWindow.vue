@@ -1,6 +1,6 @@
 <template>
   <div class="modal" v-if="isOpen">
-    <div class="modal__overlay" @click="toggleModalWindow"></div>
+    <div class="modal__overlay" @click="$emit('toggleModalWindow')"></div>
     <div class="modal__window modal-window">
       <div class="modal-window__container">
         <div class="modal-window__images">
@@ -79,7 +79,10 @@
           </div>
         </div>
 
-        <button class="modal-window__close-btn" @click="toggleModalWindow">
+        <button
+          class="modal-window__close-btn"
+          @click="$emit('toggleModalWindow')"
+        >
           <picture>
             <source
               srcset="../assets/images/close-icon.svg"
@@ -118,9 +121,6 @@ export default {
     };
   },
   methods: {
-    toggleModalWindow() {
-      this.$emit('toggleModalWindow');
-    },
     getFormattedColors(colors) {
       return colors
         .map(
