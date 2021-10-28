@@ -579,7 +579,6 @@ export default {
 @import './styles/variables';
 @import './styles/container';
 @import './styles/main';
-@import './styles/modal-window';
 
 * {
   margin: 0;
