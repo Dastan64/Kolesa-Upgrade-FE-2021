@@ -3,6 +3,7 @@
     <Header @updateUserInfo="updateUserInfo" :infoUser="infoUser"></Header>
     <div class="app__container container">
       <Navbar
+        v-model="navLinks"
         :nav-links="navLinks"
         :selected-link="selectedLink"
         @setActiveLink="changeActiveLink"
@@ -16,6 +17,7 @@
         </div>
         <Buttons></Buttons>
         <Tabs
+          v-model="tabs"
           :tabs="tabs"
           :selected-tab="selectedTab"
           @setActiveTab="changeActiveTab"
@@ -30,6 +32,7 @@
           ></Card>
         </div>
         <ModalWindow
+          v-model="isModalOpen"
           :is-open="isModalOpen"
           :info-user="infoUser"
           @toggleModalWindow="toggleModalWindow"
