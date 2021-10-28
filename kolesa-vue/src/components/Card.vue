@@ -21,7 +21,6 @@
           class="card__btn"
           type="button"
           title="Заказать"
-          :data-id="item.id"
           @click="openCard(item)"
         >
           Заказать
