@@ -39,6 +39,7 @@
           :modal-data="modalData"
           @removeScores="updateUserBalance"
         ></ModalWindow>
+        <ScoresPage></ScoresPage>
       </main>
     </div>
     <Footer></Footer>
@@ -53,6 +54,7 @@ import Tabs from './components/Tabs.vue';
 import Card from './components/Card.vue';
 import ModalWindow from './components/ModalWindow.vue';
 import Footer from './components/Footer.vue';
+import ScoresPage from './components/ScoresPage.vue';
 
 export default {
   name: 'App',
@@ -64,6 +66,7 @@ export default {
     Card,
     ModalWindow,
     Footer,
+    ScoresPage,
   },
   data() {
     return {
