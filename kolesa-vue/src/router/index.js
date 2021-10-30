@@ -21,7 +21,7 @@ const routes = [
     component: () => import('../views/shop/Shop.vue'),
   },
   {
-    path: '/get-scores',
+    path: '/shop/how-to-get-scores',
     name: 'ScoresPage',
     component: () => import('../views/scores-page/ScoresPage.vue'),
   },

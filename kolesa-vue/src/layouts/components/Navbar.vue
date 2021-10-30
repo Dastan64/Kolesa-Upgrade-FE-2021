@@ -4,12 +4,12 @@
       <nav class="aside__nav">
         <ul class="aside__list list">
           <li class="list__item" v-for="(link, index) in navLinks" :key="index">
-            <a
+            <router-link
               class="list__link"
-              :class="{ 'list__link--active': selectedLink === link.slug }"
-              href="#"
-              @click="setActiveLink(link)"
-              >{{ link.name }}</a
+              active-class="list__link--active"
+              :to="link.url"
+              :exact="link.isExact"
+              >{{ link.name }}</router-link
             >
           </li>
         </ul>
@@ -23,12 +23,6 @@ export default {
   name: 'Navbar',
   props: {
     navLinks: Array,
-    selectedLink: String,
-  },
-  methods: {
-    setActiveLink(link) {
-      this.$emit('setActiveLink', link);
-    },
   },
 };
 </script>

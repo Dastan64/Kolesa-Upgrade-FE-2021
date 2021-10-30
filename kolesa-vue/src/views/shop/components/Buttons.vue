@@ -1,20 +1,24 @@
 <template>
   <div class="main__buttons buttons">
-    <button class="buttons__get-scores" type="button">
+    <button class="buttons__get-scores link" type="button">
       <picture>
         <source srcset="@/assets/images/get-scores.webp" type="image/webp" />
         <img src="@/assets/images/get-scores.png" alt="" />
       </picture>
       Получить баллы
     </button>
-    <button class="buttons__how-to" type="button">
+    <router-link
+      to="/shop/how-to-get-scores"
+      class="buttons__how-to link"
+      type="button"
+    >
       <picture>
         <source srcset="@/assets/images/how-to.webp" type="image/webp" />
         <img src="@/assets/images/how-to.png" alt="" />
       </picture>
       Как получить баллы
-    </button>
-    <button class="buttons__gift" type="button">
+    </router-link>
+    <button class="buttons__gift link" type="button">
       <picture>
         <source srcset="@/assets/images/gift.webp" type="image/webp" />
         <img src="@/assets/images/gift.png" alt="" />

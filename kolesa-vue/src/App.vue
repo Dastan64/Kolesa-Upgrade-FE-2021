@@ -2,12 +2,7 @@
   <div class="app">
     <Header @updateUserInfo="updateUserInfo" :infoUser="infoUser"></Header>
     <div class="app__container container">
-      <Navbar
-        v-model="navLinks"
-        :nav-links="navLinks"
-        :selected-link="selectedLink"
-        @setActiveLink="changeActiveLink"
-      ></Navbar>
+      <Navbar v-model="navLinks" :nav-links="navLinks"></Navbar>
       <router-view
         :infoUser="infoUser"
         :updateUserBalance="updateUserBalance"
@@ -36,47 +31,61 @@ export default {
         {
           name: 'Оргсхема',
           slug: 'orgscheme',
+          url: '/',
+          isExact: true,
         },
         {
           name: 'Kolesa Team',
           slug: 'team',
+          url: '/team',
+          isExact: true,
         },
         {
           name: 'Kolesa Shop',
           slug: 'shop',
+          url: '/shop',
+          isExact: false,
         },
         {
           name: 'Картина компании',
           slug: 'overview',
+          url: '/overview',
+          isExact: true,
         },
         {
           name: 'Новости',
           slug: 'news',
+          url: '/news',
+          isExact: true,
         },
         {
           name: 'Education',
           slug: 'education',
+          url: '/education',
+          isExact: true,
         },
         {
           name: 'Guidelines',
           slug: 'guidelines',
+          url: '/guidelines',
+          isExact: true,
         },
         {
           name: 'Библиотека',
           slug: 'library',
+          url: '/library',
+          isExact: true,
         },
         {
           name: 'FAQ',
           slug: 'faq',
+          url: '/faq',
+          isExact: true,
         },
       ],
-      selectedLink: 'shop',
     };
   },
   methods: {
-    changeActiveLink(link) {
-      this.selectedLink = link.slug;
-    },
     updateUserInfo(userInfo) {
       this.infoUser = userInfo;
     },
