@@ -5,24 +5,12 @@
         <div class="header__logo-search">
           <div class="header__logo-container">
             <a href="#">
-              <picture>
-                <source
-                  srcset="../../assets/images/kolesa-logo.svg"
-                  type="image/webp"
-                />
-                <img
-                  src="../../assets/images/kolesa-logo.svg"
-                  alt="Логотип Kolesa"
-                />
-              </picture>
+              <img src="@/assets/images/kolesa-logo.svg" alt="Логотип Kolesa" />
             </a>
           </div>
           <HeaderSearch></HeaderSearch>
         </div>
-        <HeaderProfile
-          @updateUserInfo="updateUserInfo"
-          :infoUser="infoUser"
-        ></HeaderProfile>
+        <HeaderProfile></HeaderProfile>
       </div>
     </div>
   </header>
@@ -38,18 +26,10 @@ export default {
     HeaderSearch,
     HeaderProfile,
   },
-  props: {
-    infoUser: Object,
-  },
-  methods: {
-    updateUserInfo(userInfo) {
-      this.$emit('updateUserInfo', userInfo);
-    },
-  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/variables';
-@import '../../styles/header';
+@import '@/styles/variables';
+@import '@/styles/header';
 </style>

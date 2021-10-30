@@ -25,10 +25,8 @@
     <ModalWindow
       v-model="isModalOpen"
       :is-open="isModalOpen"
-      :info-user="infoUser"
       @toggleModalWindow="toggleModalWindow"
       :modal-data="modalData"
-      @removeScores="updateUserBalance"
     ></ModalWindow>
   </main>
 </template>
@@ -47,14 +45,8 @@ export default {
     Card,
     ModalWindow,
   },
-  props: {
-    infoUser: Object,
-    updateUserBalance: Function,
-  },
   data() {
     return {
-      clothes: [],
-      accessories: [],
       tabs: [
         {
           name: 'Все товары',
@@ -73,7 +65,7 @@ export default {
   },
   computed: {
     allItems() {
-      return [...this.clothes, ...this.accessories];
+      return [...this.$store.state.clothes, ...this.$store.state.accessories];
     },
     allItemsSorted() {
       return this.allItems
@@ -85,9 +77,9 @@ export default {
         return this.allItemsSorted;
       }
       if (this.selectedTab === 'clothes') {
-        return this.clothes;
+        return this.$store.state.clothes;
       }
-      return this.accessories;
+      return this.$store.state.accessories;
     },
   },
   methods: {
@@ -97,52 +89,14 @@ export default {
     changeActiveTab(tab) {
       this.selectedTab = tab.slug;
     },
-    fetchClothes() {
-      fetch('https://api.json-generator.com/templates/-_RLsEGjof6i/data', {
-        headers: {
-          Authorization: 'Bearer rhhrmjvdvcv0ka4e6ouao9a1gj42fbjim5bcu60f',
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            console.log(response.status);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          this.clothes = data;
-        })
-        .catch((err) => {
-          console.log('Fetch Error', err);
-        });
-    },
-    fetchAccessories() {
-      fetch('https://api.json-generator.com/templates/q3OPxRyEcPvP/data', {
-        headers: {
-          Authorization: 'Bearer rhhrmjvdvcv0ka4e6ouao9a1gj42fbjim5bcu60f',
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            console.log(response.status);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          this.accessories = data;
-        })
-        .catch((err) => {
-          console.log('Fetch Error', err);
-        });
-    },
     openCard(item) {
       this.toggleModalWindow();
       this.modalData = item;
     },
   },
   created() {
-    this.fetchClothes();
-    this.fetchAccessories();
+    this.$store.dispatch('fetchClothes');
+    this.$store.dispatch('fetchAccessories');
   },
 };
 </script>

@@ -1,12 +1,9 @@
 <template>
   <div class="app">
-    <Header @updateUserInfo="updateUserInfo" :infoUser="infoUser"></Header>
+    <Header></Header>
     <div class="app__container container">
       <Navbar v-model="navLinks" :nav-links="navLinks"></Navbar>
-      <router-view
-        :infoUser="infoUser"
-        :updateUserBalance="updateUserBalance"
-      ></router-view>
+      <router-view></router-view>
     </div>
     <Footer></Footer>
   </div>
@@ -26,7 +23,6 @@ export default {
   },
   data() {
     return {
-      infoUser: {},
       navLinks: [
         {
           name: 'Оргсхема',
@@ -84,14 +80,6 @@ export default {
         },
       ],
     };
-  },
-  methods: {
-    updateUserInfo(userInfo) {
-      this.infoUser = userInfo;
-    },
-    updateUserBalance(price) {
-      this.infoUser.score -= price;
-    },
   },
 };
 </script>
