@@ -3,10 +3,14 @@
     <div class="score__breadcrumbs breadcrumbs">
       <ul class="breadcrumbs__list">
         <li class="breadcrumbs__list-item">
-          <a class="breadcrumbs__link" href="#">Kolesa Shop</a>
+          <router-link class="breadcrumbs__link" to="/shop"
+            >Kolesa Shop</router-link
+          >
         </li>
         <li class="breadcrumbs__list-item">
-          <a class="breadcrumbs__link" href="#">Как получить баллы</a>
+          <router-link class="breadcrumbs__link" to="/shop/how-to-get-scores"
+            >Как получить баллы</router-link
+          >
         </li>
       </ul>
     </div>
@@ -99,6 +103,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/variables';
-@import '../../styles/scores-page';
+@import '@/styles/variables';
+@import '@/styles/scores-page';
 </style>

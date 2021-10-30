@@ -2,7 +2,7 @@
   <div class="app">
     <Header></Header>
     <div class="app__container container">
-      <Navbar v-model="navLinks" :nav-links="navLinks"></Navbar>
+      <Navbar :nav-links="navLinks"></Navbar>
       <router-view></router-view>
     </div>
     <Footer></Footer>
