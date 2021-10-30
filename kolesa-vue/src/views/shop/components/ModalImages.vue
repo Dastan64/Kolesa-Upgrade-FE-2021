@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/variables';
+@import '@/styles/variables';
 .preview__image {
   cursor: pointer;
   width: 50px;

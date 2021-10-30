@@ -2,22 +2,22 @@
   <div class="main__buttons buttons">
     <button class="buttons__get-scores" type="button">
       <picture>
-        <source srcset="../assets/images/get-scores.webp" type="image/webp" />
-        <img src="../assets/images/get-scores.png" alt="" />
+        <source srcset="@/assets/images/get-scores.webp" type="image/webp" />
+        <img src="@/assets/images/get-scores.png" alt="" />
       </picture>
       Получить баллы
     </button>
     <button class="buttons__how-to" type="button">
       <picture>
-        <source srcset="../assets/images/how-to.webp" type="image/webp" />
-        <img src="../assets/images/how-to.png" alt="" />
+        <source srcset="@/assets/images/how-to.webp" type="image/webp" />
+        <img src="@/assets/images/how-to.png" alt="" />
       </picture>
       Как получить баллы
     </button>
     <button class="buttons__gift" type="button">
       <picture>
-        <source srcset="../assets/images/gift.webp" type="image/webp" />
-        <img src="../assets/images/gift.png" alt="" />
+        <source srcset="@/assets/images/gift.webp" type="image/webp" />
+        <img src="@/assets/images/gift.png" alt="" />
       </picture>
       Подарить баллы
     </button>
@@ -31,8 +31,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/variables';
-@import '../styles/buttons';
+@import '@/styles/variables';
+@import '@/styles/buttons';
 .main {
   &__buttons {
     display: -webkit-box;

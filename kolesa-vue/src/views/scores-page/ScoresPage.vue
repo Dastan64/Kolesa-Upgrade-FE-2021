@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import ScoresAction from './ScoresAction.vue';
+import ScoresAction from './components/ScoresAction.vue';
 
 export default {
   name: 'ScoresPage',
@@ -99,6 +99,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/variables';
-@import '../styles/scores-page';
+@import '../../styles/variables';
+@import '../../styles/scores-page';
 </style>

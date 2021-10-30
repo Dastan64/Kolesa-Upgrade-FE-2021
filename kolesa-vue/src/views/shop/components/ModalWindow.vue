@@ -39,8 +39,8 @@
             </div>
             <div class="info__balance-icon-container">
               <picture>
-                <source srcset="../assets/images/bags.webp" type="image/webp" />
-                <img src="../assets/images/bags.png" alt="Картинка сумок" />
+                <source srcset="@/assets/images/bags.webp" type="image/webp" />
+                <img src="@/assets/images/bags.png" alt="Картинка сумок" />
               </picture>
             </div>
           </div>
@@ -107,11 +107,8 @@
           @click="$emit('toggleModalWindow')"
         >
           <picture>
-            <source
-              srcset="../assets/images/close-icon.svg"
-              type="image/webp"
-            />
-            <img src="../assets/images/close-icon.svg" />
+            <source srcset="@/assets/images/close-icon.svg" type="image/webp" />
+            <img src="@/assets/images/close-icon.svg" />
           </picture>
         </button>
       </div>
@@ -168,6 +165,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../styles/variables';
-@import '../styles/modal-window';
+@import '@/styles/variables';
+@import '@/styles/modal-window';
 </style>

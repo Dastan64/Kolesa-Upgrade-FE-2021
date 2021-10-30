@@ -2,7 +2,10 @@
   <div class="grid__item action">
     <div class="action__wrapper">
       <div class="action__image-container">
-        <img :src="require(`../assets/images/${action.iconName}.svg`)" alt="" />
+        <img
+          :src="require(`../../../assets/images/${action.iconName}.svg`)"
+          alt=""
+        />
       </div>
       <div class="action__container">
         <h3 class="action__heading">{{ action.heading }}</h3>
@@ -31,6 +34,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/variables';
-@import '../styles/scores-action';
+@import '../../../styles/variables';
+@import '../../../styles/scores-action';
 </style>

@@ -7,18 +7,21 @@
           <div class="footer__social-media">
             <a class="footer__social-media-link" href="#">
               <img
-                src="../assets/images/instagram-icon.svg"
+                src="../../assets/images/instagram-icon.svg"
                 alt="Иконка Инстаграма"
               />
             </a>
             <a class="footer__social-media-link" href="#">
               <img
-                src="../assets/images/youtube-icon.svg"
+                src="../../assets/images/youtube-icon.svg"
                 alt="Иконка YouTube"
               />
             </a>
             <a class="footer__social-media-link" href="#">
-              <img src="../assets/images/vk-icon.svg" alt="Иконка ВКонтакте" />
+              <img
+                src="../../assets/images/vk-icon.svg"
+                alt="Иконка ВКонтакте"
+              />
             </a>
           </div>
         </div>
@@ -41,6 +44,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/variables';
-@import '../styles/footer';
+@import '../../styles/variables';
+@import '../../styles/footer';
 </style>

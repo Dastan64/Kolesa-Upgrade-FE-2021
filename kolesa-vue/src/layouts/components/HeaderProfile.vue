@@ -2,16 +2,7 @@
   <a class="header__profile-link" href="#">
     <div class="header__profile-container profile">
       <div class="profile__image-container">
-        <picture>
-          <source
-            srcset="../assets/images/profile-avatar.webp"
-            type="image/webp"
-          />
-          <img
-            src="../assets/images/profile-avatar.png"
-            alt="Аватарка профиля"
-          />
-        </picture>
+        <img :src="userInfo.avatarUrl" alt="Аватарка профиля" />
       </div>
       <div class="profile__descr">
         <h3 class="profile__name">{{ userInfo.name }}</h3>
@@ -61,8 +52,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/variables';
-@import '../styles/profile';
+@import '../../styles/variables';
+@import '../../styles/profile';
 .header {
   &__profile-link {
     color: $blackPrimary;

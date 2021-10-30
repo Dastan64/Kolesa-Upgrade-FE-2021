@@ -8,81 +8,30 @@
         :selected-link="selectedLink"
         @setActiveLink="changeActiveLink"
       ></Navbar>
-      <main class="main">
-        <div class="main__banner-container">
-          <picture>
-            <source srcset="./assets/images/banner.webp" type="image/webp" />
-            <img src="./assets/images/banner.png" alt="" />
-          </picture>
-        </div>
-        <Buttons></Buttons>
-        <Tabs
-          v-model="tabs"
-          :tabs="tabs"
-          :selected-tab="selectedTab"
-          @setActiveTab="changeActiveTab"
-        ></Tabs>
-        <div class="main__grid grid">
-          <Card
-            v-for="item in filterCategories"
-            :key="item.id"
-            :item="item"
-            @toggleModalWindow="toggleModalWindow"
-            @openCard="openCard"
-          ></Card>
-        </div>
-        <ModalWindow
-          v-model="isModalOpen"
-          :is-open="isModalOpen"
-          :info-user="infoUser"
-          @toggleModalWindow="toggleModalWindow"
-          :modal-data="modalData"
-          @removeScores="updateUserBalance"
-        ></ModalWindow>
-        <ScoresPage></ScoresPage>
-      </main>
+      <router-view
+        :infoUser="infoUser"
+        :updateUserBalance="updateUserBalance"
+      ></router-view>
     </div>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue';
-import Navbar from './components/Navbar.vue';
-import Buttons from './components/Buttons.vue';
-import Tabs from './components/Tabs.vue';
-import Card from './components/Card.vue';
-import ModalWindow from './components/ModalWindow.vue';
-import Footer from './components/Footer.vue';
-import ScoresPage from './components/ScoresPage.vue';
+import Header from './layouts/components/Header.vue';
+import Navbar from './layouts/components/Navbar.vue';
+import Footer from './layouts/components/Footer.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
     Navbar,
-    Buttons,
-    Tabs,
-    Card,
-    ModalWindow,
     Footer,
-    ScoresPage,
   },
   data() {
     return {
-      clothes: [],
-      accessories: [],
-      tabs: [
-        {
-          name: 'Все товары',
-          slug: 'all',
-        },
-        { name: 'Одежда', slug: 'clothes' },
-        {
-          name: 'Аксессуары',
-          slug: 'accessories',
-        },
-      ],
+      infoUser: {},
       navLinks: [
         {
           name: 'Оргсхема',
@@ -121,79 +70,12 @@ export default {
           slug: 'faq',
         },
       ],
-      selectedTab: 'all',
       selectedLink: 'shop',
-      isModalOpen: false,
-      infoUser: {},
-      modalData: {},
     };
   },
-  computed: {
-    allItems() {
-      return [...this.clothes, ...this.accessories];
-    },
-    allItemsSorted() {
-      return this.allItems
-        .slice()
-        .sort((item) => (item.isNew !== true ? 1 : -1));
-    },
-    filterCategories() {
-      if (this.selectedTab === 'all') {
-        return this.allItemsSorted;
-      }
-      if (this.selectedTab === 'clothes') {
-        return this.clothes;
-      }
-      return this.accessories;
-    },
-  },
   methods: {
-    toggleModalWindow() {
-      this.isModalOpen = !this.isModalOpen;
-    },
-    changeActiveTab(tab) {
-      this.selectedTab = tab.slug;
-    },
     changeActiveLink(link) {
       this.selectedLink = link.slug;
-    },
-    fetchClothes() {
-      fetch('https://api.json-generator.com/templates/-_RLsEGjof6i/data', {
-        headers: {
-          Authorization: 'Bearer rhhrmjvdvcv0ka4e6ouao9a1gj42fbjim5bcu60f',
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            console.log(response.status);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          this.clothes = data;
-        })
-        .catch((err) => {
-          console.log('Fetch Error', err);
-        });
-    },
-    fetchAccessories() {
-      fetch('https://api.json-generator.com/templates/q3OPxRyEcPvP/data', {
-        headers: {
-          Authorization: 'Bearer rhhrmjvdvcv0ka4e6ouao9a1gj42fbjim5bcu60f',
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            console.log(response.status);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          this.accessories = data;
-        })
-        .catch((err) => {
-          console.log('Fetch Error', err);
-        });
     },
     updateUserInfo(userInfo) {
       this.infoUser = userInfo;
@@ -201,14 +83,6 @@ export default {
     updateUserBalance(price) {
       this.infoUser.score -= price;
     },
-    openCard(item) {
-      this.toggleModalWindow();
-      this.modalData = item;
-    },
-  },
-  created() {
-    this.fetchClothes();
-    this.fetchAccessories();
   },
 };
 </script>
@@ -216,7 +90,6 @@ export default {
 <style lang="scss">
 @import './styles/variables';
 @import './styles/container';
-@import './styles/main';
 
 * {
   margin: 0;

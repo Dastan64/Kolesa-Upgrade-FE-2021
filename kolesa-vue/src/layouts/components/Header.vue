@@ -7,11 +7,11 @@
             <a href="#">
               <picture>
                 <source
-                  srcset="../assets/images/kolesa-logo.svg"
+                  srcset="../../assets/images/kolesa-logo.svg"
                   type="image/webp"
                 />
                 <img
-                  src="../assets/images/kolesa-logo.svg"
+                  src="../../assets/images/kolesa-logo.svg"
                   alt="Логотип Kolesa"
                 />
               </picture>
@@ -50,6 +50,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/variables';
-@import '../styles/header';
+@import '../../styles/variables';
+@import '../../styles/header';
 </style>

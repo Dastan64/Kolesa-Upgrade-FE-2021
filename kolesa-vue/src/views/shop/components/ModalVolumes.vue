@@ -1,21 +1,21 @@
 <template>
-  <div class="sizes__option">
-    <p>{{ size }}</p>
+  <div class="volumes__option">
+    <p>{{ volume }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Sizes',
+  name: 'Volumes',
   props: {
-    size: String,
+    volume: Number,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/variables';
-.sizes {
+@import '@/styles/variables';
+.volumes {
   &__option {
     display: flex;
     align-items: center;
