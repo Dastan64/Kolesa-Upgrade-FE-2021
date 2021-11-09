@@ -162,7 +162,7 @@ export default {
         this.isWarningShown = true;
         return;
       }
-      this.$store.commit('updateUserBalance', this.modalData.price);
+      this.$store.commit('removeUserScore', this.modalData.price);
       this.$emit('toggleModalWindow');
     },
   },

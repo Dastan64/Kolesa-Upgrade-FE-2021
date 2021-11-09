@@ -24,7 +24,7 @@ export default new Vuex.Store({
     updateUserInfo(state, response) {
       state.userInfo = response;
     },
-    updateUserBalance(state, price) {
+    removeUserScore(state, price) {
       state.userInfo.score -= price;
     },
   },
@@ -37,7 +37,7 @@ export default new Vuex.Store({
       })
         .then((response) => {
           if (!response.ok) {
-            console.log(response.status);
+            console.error(response.status);
           }
           return response.json();
         })
@@ -56,7 +56,7 @@ export default new Vuex.Store({
       })
         .then((response) => {
           if (!response.ok) {
-            console.log(response.status);
+            console.error(response.status);
           }
           return response.json();
         })
@@ -75,7 +75,7 @@ export default new Vuex.Store({
       })
         .then((response) => {
           if (!response.ok) {
-            console.log(response.status);
+            console.error(response.status);
           }
           return response.json();
         })
