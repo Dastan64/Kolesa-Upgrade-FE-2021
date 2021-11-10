@@ -9,7 +9,7 @@
         required
       />
       <button type="submit" class="search__btn">
-        <img src="../assets/images/search-icon.svg" alt="Иконка поиска" />
+        <img src="@/assets/images/search-icon.svg" alt="Иконка поиска" />
       </button>
     </form>
   </div>
@@ -23,13 +23,12 @@ export default {
       query: '',
     };
   },
-  methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/variables';
-@import '../styles/search';
+@import '@/styles/variables';
+@import '@/styles/search';
 .header {
   &__search {
     position: relative;

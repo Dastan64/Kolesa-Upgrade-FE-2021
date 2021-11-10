@@ -35,12 +35,12 @@
           <div class="info__balance">
             <div class="info__balance-text">
               <p class="info__balance-heading">Твой баланс</p>
-              <p class="info__balance-number">{{ infoUser.score }} баллов</p>
+              <p class="info__balance-number">{{ score }} баллов</p>
             </div>
             <div class="info__balance-icon-container">
               <picture>
-                <source srcset="../assets/images/bags.webp" type="image/webp" />
-                <img src="../assets/images/bags.png" alt="Картинка сумок" />
+                <source srcset="@/assets/images/bags.webp" type="image/webp" />
+                <img src="@/assets/images/bags.png" alt="Картинка сумок" />
               </picture>
             </div>
           </div>
@@ -107,11 +107,8 @@
           @click="$emit('toggleModalWindow')"
         >
           <picture>
-            <source
-              srcset="../assets/images/close-icon.svg"
-              type="image/webp"
-            />
-            <img src="../assets/images/close-icon.svg" />
+            <source srcset="@/assets/images/close-icon.svg" type="image/webp" />
+            <img src="@/assets/images/close-icon.svg" />
           </picture>
         </button>
       </div>
@@ -119,7 +116,9 @@
         <div class="bottom-balance__container">
           <p class="bottom-balance__caption">Твои баллы:</p>
           <strong>
-            <p class="bottom-balance__number">{{ infoUser.score }}</p>
+            <p class="bottom-balance__number">
+              {{ score }}
+            </p>
           </strong>
         </div>
         <button class="bottom-balance__btn" type="button" @click="removeScores">
@@ -131,6 +130,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import ModalImages from './ModalImages.vue';
 import ModalColors from './ModalColors.vue';
 import ModalSizes from './ModalSizes.vue';
@@ -141,13 +141,15 @@ export default {
   props: {
     isOpen: Boolean,
     modalData: Object,
-    infoUser: Object,
   },
   data() {
     return {
       isWarningShown: false,
     };
   },
+  computed: mapState({
+    score: (state) => state.userInfo.score,
+  }),
   components: {
     ModalImages,
     ModalColors,
@@ -156,11 +158,11 @@ export default {
   },
   methods: {
     removeScores() {
-      if (this.infoUser.score < this.modalData.price) {
+      if (this.score < this.modalData.price) {
         this.isWarningShown = true;
         return;
       }
-      this.$emit('removeScores', this.modalData.price);
+      this.$store.commit('removeUserScore', this.modalData.price);
       this.$emit('toggleModalWindow');
     },
   },
@@ -168,6 +170,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../styles/variables';
-@import '../styles/modal-window';
+@import '@/styles/variables';
+@import '@/styles/modal-window';
 </style>

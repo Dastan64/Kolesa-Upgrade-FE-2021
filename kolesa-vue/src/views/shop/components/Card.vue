@@ -45,8 +45,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/variables';
-@import '../styles/card';
+@import '@/styles/variables';
+@import '@/styles/card';
 
 .grid__item {
   position: relative;

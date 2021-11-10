@@ -1,32 +1,33 @@
 .profile {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 10px;
-    &__image-container {
-        img {
-            width: 44px;
-            height: 44px;
-            max-width: 100%;
-        }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 10px;
+  &__image-container {
+    img {
+      width: 44px;
+      height: 44px;
+      max-width: 100%;
+      border-radius: 50%;
     }
+  }
 
-    &__descr {
-        margin-left: 16px;
-    }
+  &__descr {
+    margin-left: 16px;
+  }
 
-    &__name {
-        font-size: 0.875rem;
-        font-weight: 600;
-        color: #2a81dd;
-        line-height: 24px;
-    }
+  &__name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #2a81dd;
+    line-height: 24px;
+  }
 
-    &__scores {
-        font-size: 0.812rem;
-        line-height: 1.25rem;
-    }
+  &__scores {
+    font-size: 0.812rem;
+    line-height: 1.25rem;
+  }
 }
